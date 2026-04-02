@@ -19,471 +19,154 @@
     --muted: #7c7c9a;
     --code-bg: #0d0d15;
   }
-
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Inter', sans-serif; background: var(--bg); color: var(--text); line-height: 1.7; font-size: 15px; }
 
-  body {
-    font-family: 'Inter', sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.7;
-    font-size: 15px;
-  }
-
-  /* SIDEBAR */
   #sidebar {
-    position: fixed;
-    top: 0; left: 0;
-    width: 260px;
-    height: 100vh;
-    background: var(--surface);
-    border-right: 1px solid var(--border);
-    overflow-y: auto;
-    z-index: 100;
-    padding: 24px 0 40px;
+    position: fixed; top: 0; left: 0; width: 270px; height: 100vh;
+    background: var(--surface); border-right: 1px solid var(--border);
+    overflow-y: auto; z-index: 100; padding: 24px 0 40px;
   }
-
   #sidebar .logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 1.1rem;
-    color: var(--accent);
-    padding: 0 20px 20px;
-    border-bottom: 1px solid var(--border);
-    letter-spacing: -0.5px;
-    display: flex;
-    align-items: center;
-    gap: 8px;
+    font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem;
+    color: var(--accent); padding: 0 20px 20px; border-bottom: 1px solid var(--border);
+    letter-spacing: -0.5px; display: flex; align-items: center; gap: 8px;
   }
-
   #sidebar .logo span { color: var(--text); }
-
   .nav-section {
-    padding: 16px 20px 4px;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 1.5px;
-    text-transform: uppercase;
-    color: var(--muted);
+    padding: 16px 20px 4px; font-size: 10px; font-weight: 600;
+    letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted);
   }
-
   .nav-link {
-    display: block;
-    padding: 8px 20px;
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    transition: all 0.15s;
-    border-left: 2px solid transparent;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    display: block; padding: 8px 20px; color: var(--muted); text-decoration: none;
+    font-size: 13px; transition: all 0.15s; border-left: 2px solid transparent;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
   }
+  .nav-link:hover, .nav-link.active { color: var(--text); background: var(--surface2); border-left-color: var(--accent); }
 
-  .nav-link:hover, .nav-link.active {
-    color: var(--text);
-    background: var(--surface2);
-    border-left-color: var(--accent);
-  }
-
-  /* MAIN */
-  #main {
-    margin-left: 260px;
-    min-height: 100vh;
-  }
+  #main { margin-left: 270px; min-height: 100vh; }
 
   .hero {
     background: linear-gradient(135deg, #0d0d1a 0%, #14102a 50%, #0a0f1a 100%);
-    border-bottom: 1px solid var(--border);
-    padding: 60px 60px 50px;
-    position: relative;
-    overflow: hidden;
+    border-bottom: 1px solid var(--border); padding: 60px 60px 50px;
+    position: relative; overflow: hidden;
   }
-
   .hero::before {
-    content: '';
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 400px; height: 400px;
-    background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 70%);
-    pointer-events: none;
+    content: ''; position: absolute; top: -80px; right: -80px; width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(108,99,255,0.15) 0%, transparent 70%); pointer-events: none;
   }
-
   .hero-tag {
-    display: inline-block;
-    background: rgba(108,99,255,0.15);
-    color: var(--accent);
-    border: 1px solid rgba(108,99,255,0.3);
-    border-radius: 20px;
-    padding: 4px 14px;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-    margin-bottom: 18px;
+    display: inline-block; background: rgba(108,99,255,0.15); color: var(--accent);
+    border: 1px solid rgba(108,99,255,0.3); border-radius: 20px; padding: 4px 14px;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 18px;
   }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800;
-    font-size: 2.6rem;
-    line-height: 1.15;
-    letter-spacing: -1px;
-    margin-bottom: 14px;
-  }
-
+  .hero h1 { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 2.6rem; line-height: 1.15; letter-spacing: -1px; margin-bottom: 14px; }
   .hero h1 em { color: var(--accent); font-style: normal; }
+  .hero p { color: var(--muted); font-size: 1rem; max-width: 540px; }
+  .hero-stats { display: flex; gap: 32px; margin-top: 28px; }
+  .stat { text-align: center; }
+  .stat-num { font-family: 'Syne', sans-serif; font-size: 1.8rem; font-weight: 800; color: var(--accent); }
+  .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.5px; text-transform: uppercase; }
 
-  .hero p {
-    color: var(--muted);
-    font-size: 1rem;
-    max-width: 540px;
-  }
+  .section { padding: 50px 60px; border-bottom: 1px solid var(--border); }
+  .section-header { display: flex; align-items: center; gap: 14px; margin-bottom: 32px; }
+  .section-icon { width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 18px; flex-shrink: 0; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; }
+  .section-subtitle { color: var(--muted); font-size: 13px; }
 
-  .hero-stats {
-    display: flex;
-    gap: 32px;
-    margin-top: 28px;
-  }
-
-  .stat {
-    text-align: center;
-  }
-
-  .stat-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--accent);
-  }
-
-  .stat-label {
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.5px;
-    text-transform: uppercase;
-  }
-
-  /* CONTENT */
-  #content {
-    padding: 0;
-  }
-
-  .section {
-    padding: 50px 60px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .section-header {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 32px;
-  }
-
-  .section-icon {
-    width: 40px; height: 40px;
-    border-radius: 10px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 18px;
-    flex-shrink: 0;
-  }
-
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 700;
-  }
-
-  .section-subtitle {
-    color: var(--muted);
-    font-size: 13px;
-  }
-
-  /* Q&A CARDS */
-  .qa-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    margin-bottom: 16px;
-    overflow: hidden;
-    transition: border-color 0.2s;
-  }
-
+  .qa-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 16px; overflow: hidden; transition: border-color 0.2s; }
   .qa-card:hover { border-color: rgba(108,99,255,0.4); }
-
-  .qa-question {
-    padding: 18px 22px;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 16px;
-  }
-
-  .qa-q-text {
-    font-weight: 600;
-    font-size: 14.5px;
-    color: var(--text);
-    flex: 1;
-  }
-
-  .qa-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    background: rgba(108,99,255,0.12);
-    border-radius: 4px;
-    padding: 2px 8px;
-    flex-shrink: 0;
-  }
-
-  .qa-toggle {
-    width: 24px; height: 24px;
-    border-radius: 6px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    display: flex; align-items: center; justify-content: center;
-    font-size: 14px;
-    flex-shrink: 0;
-    transition: all 0.2s;
-  }
-
-  .qa-card.open .qa-toggle {
-    background: var(--accent);
-    border-color: var(--accent);
-    color: white;
-    transform: rotate(45deg);
-  }
-
-  .qa-answer {
-    display: none;
-    padding: 0 22px 22px;
-    border-top: 1px solid var(--border);
-    margin-top: 0;
-  }
-
+  .qa-question { padding: 18px 22px; cursor: pointer; display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; }
+  .qa-q-text { font-weight: 600; font-size: 14.5px; color: var(--text); flex: 1; }
+  .qa-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); background: rgba(108,99,255,0.12); border-radius: 4px; padding: 2px 8px; flex-shrink: 0; }
+  .qa-toggle { width: 24px; height: 24px; border-radius: 6px; background: var(--surface2); border: 1px solid var(--border); color: var(--muted); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; transition: all 0.2s; }
+  .qa-card.open .qa-toggle { background: var(--accent); border-color: var(--accent); color: white; transform: rotate(45deg); }
+  .qa-answer { display: none; padding: 0 22px 22px; border-top: 1px solid var(--border); }
   .qa-answer.show { display: block; }
-
-  .qa-answer-inner {
-    padding-top: 18px;
-    color: #c4c4d8;
-    font-size: 14px;
-    line-height: 1.8;
-  }
-
-  .qa-answer-inner p { margin-bottom: 10px; }
-  .qa-answer-inner ul { padding-left: 20px; margin-bottom: 10px; }
-  .qa-answer-inner li { margin-bottom: 6px; }
+  .qa-answer-inner { padding-top: 18px; color: #c4c4d8; font-size: 14px; line-height: 1.85; }
+  .qa-answer-inner p { margin-bottom: 12px; }
+  .qa-answer-inner ul, .qa-answer-inner ol { padding-left: 22px; margin-bottom: 12px; }
+  .qa-answer-inner li { margin-bottom: 8px; }
   .qa-answer-inner strong { color: var(--text); }
+  .qa-answer-inner h4 { font-family: 'Syne', sans-serif; font-size: 13px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin: 18px 0 8px; }
 
-  /* HIGHLIGHT BOXES */
-  .tip-box {
-    background: rgba(67,233,123,0.07);
-    border: 1px solid rgba(67,233,123,0.25);
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin: 14px 0;
-    font-size: 13px;
-    color: #a8f5c0;
-  }
-
+  .tip-box { background: rgba(67,233,123,0.07); border: 1px solid rgba(67,233,123,0.25); border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 13px; color: #a8f5c0; }
   .tip-box strong { color: var(--accent3); }
+  .warn-box { background: rgba(247,151,30,0.07); border: 1px solid rgba(247,151,30,0.25); border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 13px; color: #f7d49e; }
+  .warn-box strong { color: var(--accent4); }
+  .info-box { background: rgba(108,99,255,0.07); border: 1px solid rgba(108,99,255,0.25); border-radius: 8px; padding: 14px 18px; margin: 14px 0; font-size: 13px; color: #c5c0ff; }
+  .info-box strong { color: var(--accent); }
 
-  .warn-box {
-    background: rgba(247,151,30,0.07);
-    border: 1px solid rgba(247,151,30,0.25);
-    border-radius: 8px;
-    padding: 14px 18px;
-    margin: 14px 0;
-    font-size: 13px;
-    color: #f7d49e;
-  }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 10px; padding: 20px; overflow-x: auto; margin: 14px 0; font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; line-height: 1.8; }
+  code { font-family: 'IBM Plex Mono', monospace; font-size: 12.5px; background: rgba(108,99,255,0.1); padding: 1px 5px; border-radius: 3px; }
+  pre code { background: none; padding: 0; }
+  .code-label { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); background: rgba(108,99,255,0.1); border: 1px solid rgba(108,99,255,0.2); border-radius: 4px 4px 0 0; padding: 5px 14px; display: block; border-bottom: none; }
 
-  /* CODE */
-  pre {
-    background: var(--code-bg);
-    border: 1px solid var(--border);
-    border-radius: 10px;
-    padding: 20px;
-    overflow-x: auto;
-    margin: 14px 0;
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 13px;
-    line-height: 1.7;
-  }
+  .kw { color: #c792ea; } .fn { color: #82aaff; } .str { color: #c3e88d; }
+  .cm { color: #546e7a; font-style: italic; } .num { color: #f78c6c; }
+  .tag { color: #ff6584; } .prop { color: #ffcb6b; } .val { color: #c3e88d; }
+  .op { color: #89ddff; }
 
-  code { font-family: 'IBM Plex Mono', monospace; }
-
-  .code-label {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    background: rgba(108,99,255,0.1);
-    border: 1px solid rgba(108,99,255,0.2);
-    border-radius: 4px;
-    padding: 3px 10px;
-    margin-bottom: 8px;
-    display: inline-block;
-  }
-
-  .kw { color: #c792ea; }
-  .fn { color: #82aaff; }
-  .str { color: #c3e88d; }
-  .cm { color: #546e7a; font-style: italic; }
-  .num { color: #f78c6c; }
-  .tag { color: #ff6584; }
-  .prop { color: #ffcb6b; }
-  .val { color: #c3e88d; }
-
-  /* LIVE CODE TESTS */
-  .challenge-card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 14px;
-    margin-bottom: 24px;
-    overflow: hidden;
-  }
-
-  .challenge-header {
-    padding: 18px 22px;
-    background: var(--surface2);
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 12px;
-  }
-
-  .challenge-badge {
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 0.5px;
-    padding: 3px 10px;
-    border-radius: 20px;
-  }
-
+  .challenge-card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; margin-bottom: 28px; overflow: hidden; }
+  .challenge-header { padding: 18px 22px; background: var(--surface2); border-bottom: 1px solid var(--border); display: flex; align-items: center; gap: 12px; }
+  .challenge-badge { font-size: 11px; font-weight: 700; letter-spacing: 0.5px; padding: 3px 10px; border-radius: 20px; }
   .badge-easy { background: rgba(67,233,123,0.15); color: var(--accent3); border: 1px solid rgba(67,233,123,0.3); }
   .badge-medium { background: rgba(247,151,30,0.15); color: var(--accent4); border: 1px solid rgba(247,151,30,0.3); }
   .badge-hard { background: rgba(255,101,132,0.15); color: var(--accent2); border: 1px solid rgba(255,101,132,0.3); }
-
-  .challenge-title {
-    font-family: 'Syne', sans-serif;
-    font-weight: 700;
-    font-size: 1rem;
-    flex: 1;
-  }
-
+  .challenge-title { font-family: 'Syne', sans-serif; font-weight: 700; font-size: 1rem; flex: 1; }
   .challenge-body { padding: 22px; }
+  .challenge-task { color: var(--muted); font-size: 14px; margin-bottom: 16px; line-height: 1.7; }
 
-  .challenge-task {
-    color: var(--muted);
-    font-size: 14px;
-    margin-bottom: 16px;
-  }
-
-  /* TABS */
-  .tabs {
-    display: flex;
-    gap: 4px;
-    margin-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .tab-btn {
-    padding: 8px 16px;
-    font-size: 13px;
-    font-weight: 500;
-    background: none;
-    border: none;
-    color: var(--muted);
-    cursor: pointer;
-    border-bottom: 2px solid transparent;
-    margin-bottom: -1px;
-    transition: all 0.15s;
-  }
-
-  .tab-btn.active {
-    color: var(--accent);
-    border-bottom-color: var(--accent);
-  }
-
+  .tabs { display: flex; gap: 4px; margin-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .tab-btn { padding: 8px 16px; font-size: 13px; font-weight: 500; background: none; border: none; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: all 0.15s; }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
 
-  /* PROCESS SECTION */
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 16px;
-    margin-top: 8px;
-  }
+  .process-steps { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 8px; }
+  .process-step { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 20px; }
+  .step-num { font-family: 'IBM Plex Mono', monospace; font-size: 11px; color: var(--accent); margin-bottom: 8px; }
+  .step-title { font-weight: 700; font-size: 14px; margin-bottom: 6px; font-family: 'Syne', sans-serif; }
+  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  .process-step {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 12px;
-    padding: 20px;
-  }
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
 
-  .step-num {
-    font-family: 'IBM Plex Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    margin-bottom: 8px;
-  }
+  .explain-block { background: var(--surface2); border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px; margin: 12px 0; }
+  .explain-block .explain-title { font-size: 12px; font-weight: 700; color: var(--accent); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .explain-block p { font-size: 13px; color: #b0b0c8; margin: 0; }
 
-  .step-title {
-    font-weight: 700;
-    font-size: 14px;
-    margin-bottom: 6px;
-    font-family: 'Syne', sans-serif;
-  }
-
-  .step-desc { font-size: 13px; color: var(--muted); }
-
-  /* TAGS */
-  .tag-list { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-
-  .topic-tag {
-    font-size: 12px;
-    background: var(--surface2);
-    border: 1px solid var(--border);
-    border-radius: 6px;
-    padding: 4px 12px;
-    color: var(--muted);
-  }
-
-  /* SCROLLBAR */
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     #sidebar { display: none; }
     #main { margin-left: 0; }
     .section { padding: 30px 20px; }
     .hero { padding: 40px 20px 30px; }
     .hero h1 { font-size: 1.8rem; }
+    .two-col { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
 <nav id="sidebar">
-  <div class="logo">⬡ <span>micro1</span> Interview</div>
-  <div class="nav-section">Overview</div>
+  <div class="logo">⬡ <span>micro1</span> Prep</div>
+  <div class="nav-section">Start Here</div>
   <a class="nav-link" href="#process">Interview Process</a>
-  <a class="nav-link" href="#tips">Key Tips from Candidates</a>
+  <a class="nav-link" href="#tips">Tips from Candidates</a>
+  <div class="nav-section">Intro & Behavioural</div>
+  <a class="nav-link" href="#intro">Introduce Yourself</a>
+  <a class="nav-link" href="#behavioral">Scenario Questions</a>
   <div class="nav-section">Technical Q&amp;A</div>
   <a class="nav-link" href="#html-css">HTML &amp; CSS</a>
   <a class="nav-link" href="#javascript">JavaScript</a>
   <a class="nav-link" href="#react">React &amp; State</a>
   <a class="nav-link" href="#performance">Performance</a>
   <a class="nav-link" href="#responsive">Responsive Design</a>
-  <a class="nav-link" href="#tools">Tooling &amp; Workflow</a>
+  <a class="nav-link" href="#tools">Tooling &amp; Debugging</a>
   <a class="nav-link" href="#architecture">Architecture</a>
-  <div class="nav-section">Behavioural</div>
-  <a class="nav-link" href="#behavioral">Scenario Questions</a>
   <div class="nav-section">Live Coding</div>
   <a class="nav-link" href="#live-easy">Easy Challenges</a>
   <a class="nav-link" href="#live-medium">Medium Challenges</a>
@@ -492,47 +175,47 @@
 
 <div id="main">
   <div class="hero">
-    <div class="hero-tag">🎯 micro1 Interview Prep</div>
-    <h1>Frontend Developer<br><em>Interview Guide</em></h1>
-    <p>Complete preparation covering all technical topics, behavioural questions, and live coding challenges based on real micro1 interview reports.</p>
+    <div class="hero-tag">🎯 micro1 Interview Prep — Frontend Developer</div>
+    <h1>Complete Interview<br><em>Study Guide</em></h1>
+    <p>Deep-dive preparation: detailed answers, code walkthroughs, and all the behavioural questions — built from real micro1 interview reports.</p>
     <div class="hero-stats">
-      <div class="stat"><div class="stat-num">40+</div><div class="stat-label">Questions</div></div>
-      <div class="stat"><div class="stat-num">8</div><div class="stat-label">Topics</div></div>
+      <div class="stat"><div class="stat-num">45+</div><div class="stat-label">Questions</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">Topics</div></div>
       <div class="stat"><div class="stat-num">12</div><div class="stat-label">Coding Challenges</div></div>
     </div>
   </div>
 
   <div id="content">
 
-    <!-- INTERVIEW PROCESS -->
+    <!-- PROCESS -->
     <section class="section" id="process">
       <div class="section-header">
         <div class="section-icon" style="background:rgba(108,99,255,0.15)">🤖</div>
         <div>
           <div class="section-title">The micro1 Interview Process</div>
-          <div class="section-subtitle">Know what to expect before you start</div>
+          <div class="section-subtitle">Know exactly what to expect before you start</div>
         </div>
       </div>
       <div class="process-steps">
         <div class="process-step">
           <div class="step-num">STAGE 01</div>
           <div class="step-title">AI Oral Interview (Zara)</div>
-          <div class="step-desc">~22 minutes. Background, motivation, and general frontend knowledge. The AI adapts to your answers and trails from one question to the next.</div>
+          <div class="step-desc">~22 minutes. Covers your background, motivation, and general frontend knowledge. Questions trail from one to the next based on your previous answers — like a real conversation.</div>
         </div>
         <div class="process-step">
           <div class="step-num">STAGE 02</div>
           <div class="step-title">Live Coding Session</div>
-          <div class="step-desc">~25 minutes. Solve a real problem using JavaScript and/or React under time pressure. Concise, confident responses are key.</div>
+          <div class="step-desc">~25 minutes. Write functional JavaScript or React code to solve a real problem under time pressure. Concise, correct, and confident output is what scores well.</div>
         </div>
         <div class="process-step">
           <div class="step-num">RESULT</div>
           <div class="step-title">Instant Certification</div>
-          <div class="step-desc">You receive a real-time result. If you don't pass, you can request feedback. The AI evaluates how you think, solve, and communicate.</div>
+          <div class="step-desc">You get a real-time pass/fail result. If you don't pass, you can request written feedback. The AI evaluates how you think, solve, and communicate — not just what you know.</div>
         </div>
         <div class="process-step">
-          <div class="step-num">NOTE</div>
-          <div class="step-title">AI Interviewer Behaviour</div>
-          <div class="step-desc">Zara may stay quiet while you answer and moves on quickly. Don't be thrown off — speak confidently, be concise, and don't wait for affirmation.</div>
+          <div class="step-num">⚠ HEADS UP</div>
+          <div class="step-title">Zara's Behaviour</div>
+          <div class="step-desc">Zara may stay silent while you answer and moves on quickly after a pause. She sometimes agrees with everything. Don't wait for validation — speak confidently and completely.</div>
         </div>
       </div>
     </section>
@@ -542,542 +225,65 @@
       <div class="section-header">
         <div class="section-icon" style="background:rgba(67,233,123,0.12)">💡</div>
         <div>
-          <div class="section-title">Key Tips from Real Candidates</div>
-          <div class="section-subtitle">Insights from Glassdoor &amp; community reports</div>
+          <div class="section-title">Tips from Real Candidates</div>
+          <div class="section-subtitle">Gathered from Glassdoor and community interview reports</div>
         </div>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-        <div class="tip-box"><strong>Speak first, pause later.</strong> Zara moves on after a short silence. Start answering immediately even if you're still forming the full thought.</div>
-        <div class="tip-box"><strong>Be concise and confident.</strong> The AI evaluates communication quality. Rambling is penalised — structure your answers clearly.</div>
-        <div class="tip-box"><strong>Expect trailing questions.</strong> One answer leads into the next. Your answer on state management may lead to "how would you handle side effects?"</div>
-        <div class="tip-box"><strong>Technical coding is basic to intermediate.</strong> The task is less complex than daily work, but speed and correctness under pressure matter a lot.</div>
-        <div class="warn-box" style="grid-column:span 2"><strong>⚠️ Screen recording alert:</strong> Some candidates were flagged for touching screen tools during the interview. Keep your screen clean and focused on the interview tab only.</div>
+      <div class="two-col">
+        <div class="tip-box"><strong>Start answering immediately.</strong> Zara moves to the next question after a short silence. Don't pause to gather your thoughts silently — think out loud from the start.</div>
+        <div class="tip-box"><strong>Structure your answers.</strong> Use "The reason I do X is because Y, and the result is Z." The AI scores communication quality, not just correctness.</div>
+        <div class="tip-box"><strong>Expect trailing questions.</strong> If you mention Redux, expect "how would you handle async side effects in Redux?" Always be ready to go deeper on whatever you say.</div>
+        <div class="tip-box"><strong>The coding task is intentionally basic.</strong> Speed and correctness under pressure matter more than cleverness. Clean code with good variable names scores better than a clever one-liner.</div>
       </div>
+      <div class="warn-box" style="margin-top:14px"><strong>⚠ Screen alert:</strong> Some candidates were flagged for opening other tabs or screen tools during the session. Keep your browser focused on the interview tab only throughout.</div>
     </section>
 
-    <!-- HTML & CSS -->
-    <section class="section" id="html-css">
+    <!-- INTRODUCE YOURSELF -->
+    <section class="section" id="intro">
       <div class="section-header">
-        <div class="section-icon" style="background:rgba(255,101,132,0.12)">🎨</div>
+        <div class="section-icon" style="background:rgba(255,101,132,0.12)">👋</div>
         <div>
-          <div class="section-title">HTML &amp; CSS Questions</div>
-          <div class="section-subtitle">Scalability, architecture, cross-browser</div>
+          <div class="section-title">Introduce Yourself</div>
+          <div class="section-subtitle">Almost always the first question — it sets the entire tone</div>
         </div>
       </div>
 
       <div class="qa-card">
         <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q01</span>
-          <span class="qa-q-text">What best practices should be followed for scalable and maintainable HTML/CSS?</span>
+          <span class="qa-num">INTRO</span>
+          <span class="qa-q-text">"Tell me about yourself" / "Walk me through your background as a frontend developer."</span>
           <span class="qa-toggle">+</span>
         </div>
         <div class="qa-answer">
           <div class="qa-answer-inner">
-            <p>Use <strong>semantic HTML elements</strong> (e.g. <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>) so structure is meaningful to both browsers and screen readers.</p>
-            <p>Adopt a <strong>modular CSS architecture</strong> like <strong>BEM</strong> (Block Element Modifier) or <strong>SMACSS</strong> to keep class names predictable and collision-free.</p>
-            <p>Use <strong>pre-processors</strong> like SASS/SCSS to organise CSS with variables, nesting, and mixins. Keep specificity low — avoid <code>!important</code> and overly nested selectors.</p>
-            <p>Enforce <strong>naming conventions</strong>, organise files logically (by feature/component), document reusable patterns, and use <strong>version control + code reviews</strong> to maintain standards.</p>
-            <div class="tip-box"><strong>BEM example:</strong> <code>.card__title--highlighted</code> — Block: card, Element: title, Modifier: highlighted.</div>
-          </div>
-        </div>
-      </div>
+            <p>This question is asked in virtually every interview and it sets the tone for everything that follows. A weak intro makes you sound unconfident. A strong intro signals clarity, seniority, and professional self-awareness.</p>
 
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q02</span>
-          <span class="qa-q-text">How do you ensure cross-browser compatibility in complex front-end projects?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>Write <strong>standard-compliant HTML5 and CSS3</strong>. Use <strong>feature detection</strong> (not browser detection) via libraries like <strong>Modernizr</strong>.</p>
-            <p>Use <strong>CSS vendor prefixes</strong> for experimental properties, and tools like <strong>Autoprefixer</strong> to automate this. Use <strong>normalize.css</strong> to reset inconsistent browser defaults.</p>
-            <p>Add <strong>polyfills</strong> for unsupported features (e.g., <code>fetch</code>, <code>IntersectionObserver</code>), and test rigorously on Chrome, Firefox, Safari, and Edge using real devices or <strong>BrowserStack</strong>.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q03</span>
-          <span class="qa-q-text">How do you structure CSS for large-scale responsive web applications?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>Use <strong>BEM for naming</strong>, a <strong>component-driven architecture</strong> (one file per component), and <strong>SASS/SCSS</strong> for variables, mixins, and nested organisation.</p>
-            <p>Follow a <strong>mobile-first</strong> approach: write base styles for small screens, then use <code>min-width</code> media queries to scale up. This ensures progressively enhanced experiences.</p>
-            <p>Keep media queries modularised inside their component files rather than in a single giant file — this keeps styles co-located and maintainable.</p>
-            <div class="tip-box"><strong>Mobile-first media query:</strong> <code>@media (min-width: 768px) { ... }</code> — base styles are for small screens.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q04</span>
-          <span class="qa-q-text">What are the principles of progressive enhancement vs graceful degradation?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>Progressive Enhancement</strong>: Start with a baseline that works everywhere — plain HTML with basic CSS. Then layer in advanced features (CSS animations, JS interactivity) for browsers that support them. Everyone gets a functional experience.</p>
-            <p><strong>Graceful Degradation</strong>: Build for modern browsers first, then ensure it still functions in older/less-capable ones — even if some features are missing or simplified.</p>
-            <p>In practice, <strong>progressive enhancement is preferred</strong> because it's accessibility-first and more inclusive. Use feature queries (<code>@supports</code>) to conditionally apply advanced CSS.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q05</span>
-          <span class="qa-q-text">Explain the CSS Box Model and how box-sizing affects layout.</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>Every element is a box with: <strong>content → padding → border → margin</strong>.</p>
-            <p>With <code>box-sizing: content-box</code> (default), width/height refers to content only — padding and border are added on top, making the actual rendered size larger than declared.</p>
-            <p>With <code>box-sizing: border-box</code>, width/height <em>includes</em> padding and border. This is almost always what you want and is why most stylesheets set:</p>
-            <pre><span class="cm">/* Apply border-box globally */</span>
-<span class="prop">*</span>, <span class="prop">*::before</span>, <span class="prop">*::after</span> {
-  <span class="prop">box-sizing</span>: <span class="val">border-box</span>;
-}</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q06</span>
-          <span class="qa-q-text">When would you use CSS Grid vs Flexbox?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>Flexbox</strong> is for <em>one-dimensional</em> layout — aligning items in a row or column. Great for navbars, button groups, centering, and card rows.</p>
-            <p><strong>CSS Grid</strong> is for <em>two-dimensional</em> layout — rows AND columns simultaneously. Great for page layouts, dashboards, and complex card grids.</p>
-            <div class="tip-box"><strong>Rule of thumb:</strong> If you're thinking about rows OR columns → Flexbox. If you're thinking about rows AND columns → Grid. They're often used together.</div>
-            <pre><span class="cm">/* Flexbox: horizontal nav */</span>
-<span class="prop">.nav</span> { <span class="prop">display</span>: <span class="val">flex</span>; <span class="prop">gap</span>: <span class="val">16px</span>; <span class="prop">align-items</span>: <span class="val">center</span>; }
-
-<span class="cm">/* Grid: 3-col card layout */</span>
-<span class="prop">.grid</span> { <span class="prop">display</span>: <span class="val">grid</span>; <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>; <span class="prop">gap</span>: <span class="val">24px</span>; }</pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- JAVASCRIPT -->
-    <section class="section" id="javascript">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(247,151,30,0.12)">⚡</div>
-        <div>
-          <div class="section-title">JavaScript Questions</div>
-          <div class="section-subtitle">Core concepts, async, closures, ES6+</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q07</span>
-          <span class="qa-q-text">What advanced JavaScript concepts are essential for front-end development?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <ul>
-              <li><strong>Closures</strong> — functions that remember the scope they were created in</li>
-              <li><strong>Asynchronous programming</strong> — Promises, async/await, and the event loop</li>
-              <li><strong>Prototypal inheritance</strong> — how objects inherit via the prototype chain</li>
-              <li><strong>Event delegation</strong> — attaching one listener to a parent instead of many children</li>
-              <li><strong>ES6+ features</strong> — destructuring, spread/rest, optional chaining, nullish coalescing</li>
-              <li><strong>Functional programming</strong> — pure functions, immutability, map/filter/reduce</li>
-              <li><strong>Module patterns</strong> — ES modules, import/export, code splitting</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q08</span>
-          <span class="qa-q-text">Explain closures in JavaScript with an example.</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>A closure is a function that has access to its outer (enclosing) function's variables even after that outer function has returned.</p>
-            <pre><span class="kw">function</span> <span class="fn">makeCounter</span>() {
-  <span class="kw">let</span> count = <span class="num">0</span>; <span class="cm">// private variable</span>
-  <span class="kw">return</span> {
-    increment: () => ++count,
-    decrement: () => --count,
-    value: () => count
-  };
-}
-
-<span class="kw">const</span> counter = <span class="fn">makeCounter</span>();
-counter.<span class="fn">increment</span>(); <span class="cm">// 1</span>
-counter.<span class="fn">increment</span>(); <span class="cm">// 2</span>
-counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
-            <p><strong>Practical uses:</strong> module pattern, data encapsulation, memoisation, event handlers with captured state.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q09</span>
-          <span class="qa-q-text">How does the JavaScript event loop work?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>JavaScript is <strong>single-threaded</strong>. The event loop allows async operations by managing three things:</p>
-            <ul>
-              <li><strong>Call Stack</strong> — executes synchronous code (LIFO)</li>
-              <li><strong>Web APIs / Task Queue</strong> — setTimeout, DOM events, fetch callbacks wait here</li>
-              <li><strong>Microtask Queue</strong> — Promise callbacks (.then, .catch) — processed before the task queue</li>
-            </ul>
-            <p>Order: synchronous code → microtasks (Promises) → macrotasks (setTimeout, setInterval).</p>
-            <pre><span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'1'</span>);                         <span class="cm">// sync</span>
-<span class="fn">setTimeout</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'2'</span>), <span class="num">0</span>);  <span class="cm">// macrotask</span>
-<span class="fn">Promise</span>.<span class="fn">resolve</span>().<span class="fn">then</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'3'</span>)); <span class="cm">// microtask</span>
-<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'4'</span>);                         <span class="cm">// sync</span>
-<span class="cm">// Output: 1, 4, 3, 2</span></pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q10</span>
-          <span class="qa-q-text">Explain async/await vs Promises. When would you use each?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>Promises</strong> represent an eventual value. They use <code>.then()</code>/<code>.catch()</code> chaining. Good for multiple parallel operations via <code>Promise.all()</code>.</p>
-            <p><strong>async/await</strong> is syntactic sugar over Promises — it makes async code read like synchronous code. Easier to reason about for sequential steps.</p>
-            <pre><span class="cm">// Promises</span>
-<span class="fn">fetchUser</span>(id)
-  .<span class="fn">then</span>(user => <span class="fn">fetchPosts</span>(user.id))
-  .<span class="fn">then</span>(posts => <span class="fn">render</span>(posts))
-  .<span class="fn">catch</span>(err => <span class="fn">console</span>.<span class="fn">error</span>(err));
-
-<span class="cm">// async/await (cleaner)</span>
-<span class="kw">async function</span> <span class="fn">loadUserPosts</span>(id) {
-  <span class="kw">try</span> {
-    <span class="kw">const</span> user = <span class="kw">await</span> <span class="fn">fetchUser</span>(id);
-    <span class="kw">const</span> posts = <span class="kw">await</span> <span class="fn">fetchPosts</span>(user.id);
-    <span class="fn">render</span>(posts);
-  } <span class="kw">catch</span> (err) {
-    <span class="fn">console</span>.<span class="fn">error</span>(err);
-  }
-}</pre>
-            <div class="tip-box"><strong>Parallelism:</strong> Use <code>Promise.all([a(), b()])</code> to run tasks concurrently instead of sequentially.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q11</span>
-          <span class="qa-q-text">What is event delegation and why is it useful?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>Instead of attaching event listeners to every individual child element, you attach <strong>one listener to a common parent</strong> and use <code>event.target</code> to identify which child was clicked. This leverages <strong>event bubbling</strong>.</p>
-            <pre><span class="cm">// Without delegation — N listeners</span>
-<span class="fn">document</span>.<span class="fn">querySelectorAll</span>(<span class="str">'.btn'</span>).<span class="fn">forEach</span>(btn =>
-  btn.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, handleClick)
-);
-
-<span class="cm">// With delegation — 1 listener</span>
-<span class="fn">document</span>.<span class="fn">querySelector</span>(<span class="str">'#list'</span>).<span class="fn">addEventListener</span>(<span class="str">'click'</span>, (e) => {
-  <span class="kw">if</span> (e.target.<span class="fn">matches</span>(<span class="str">'.btn'</span>)) <span class="fn">handleClick</span>(e);
-});</pre>
-            <p><strong>Benefits:</strong> Better performance with large lists, works on dynamically added elements, lower memory usage.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- REACT -->
-    <section class="section" id="react">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(66,211,255,0.12)">⚛️</div>
-        <div>
-          <div class="section-title">React &amp; State Management</div>
-          <div class="section-subtitle">Hooks, Context, Redux, data flow</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q12</span>
-          <span class="qa-q-text">How do you manage state and handle data flow in large React applications?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>State management scales from local to global depending on complexity:</p>
-            <ul>
-              <li><strong>useState / useReducer</strong> — local component state</li>
-              <li><strong>Context API</strong> — share state across a subtree without prop drilling</li>
-              <li><strong>Redux / Zustand / Jotai</strong> — centralised global state for large apps</li>
-            </ul>
-            <p>Key principles: <strong>immutability</strong> (never mutate state directly), <strong>single source of truth</strong>, <strong>predictable state transitions</strong>, and <strong>middleware</strong> (like Redux Thunk or Saga) for side effects like API calls.</p>
-            <div class="tip-box"><strong>Rule:</strong> Don't use Redux for everything. Start with useState → Context → Redux only when Context becomes a performance bottleneck or logic is complex.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q13</span>
-          <span class="qa-q-text">Explain React's key hooks: useState, useEffect, useMemo, useCallback.</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>useState</strong> — declares reactive state. Re-renders component on update.</p>
-            <p><strong>useEffect</strong> — runs side effects (data fetching, subscriptions) after render. The dependency array controls when it runs.</p>
-            <p><strong>useMemo</strong> — memoises a computed value. Only recomputes when dependencies change. Avoids expensive recalculations on every render.</p>
-            <p><strong>useCallback</strong> — memoises a function reference. Useful when passing callbacks to child components to prevent unnecessary re-renders.</p>
-            <pre><span class="cm">// useMemo example</span>
-<span class="kw">const</span> sortedList = <span class="fn">useMemo</span>(() =>
-  [...items].<span class="fn">sort</span>((a, b) => a.name.<span class="fn">localeCompare</span>(b.name)),
-  [items] <span class="cm">// only recomputes when items changes</span>
-);
-
-<span class="cm">// useCallback example</span>
-<span class="kw">const</span> handleClick = <span class="fn">useCallback</span>(() => {
-  <span class="fn">doSomething</span>(id);
-}, [id]);</pre>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q14</span>
-          <span class="qa-q-text">What is React's reconciliation and how does the Virtual DOM work?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>React maintains a <strong>Virtual DOM</strong> — a lightweight JS representation of the actual DOM. When state or props change, React creates a new Virtual DOM tree.</p>
-            <p>The <strong>reconciliation algorithm (diffing)</strong> compares the old and new Virtual DOM trees and calculates the minimum set of changes needed. It then <strong>batches those changes</strong> and applies them to the real DOM efficiently.</p>
-            <p>The <code>key</code> prop is critical in lists — it tells React which items changed, were added, or removed, enabling accurate diffing without re-rendering everything.</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q15</span>
-          <span class="qa-q-text">What is the difference between controlled and uncontrolled components?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>Controlled component</strong>: Form data is managed by React state. The component's value is always in sync with state. This is the React-recommended approach.</p>
-            <p><strong>Uncontrolled component</strong>: Form data is managed by the DOM itself. You access it via a <code>ref</code> rather than state. Useful for file inputs or integrating with non-React libraries.</p>
-            <pre><span class="cm">// Controlled</span>
-<span class="kw">const</span> [value, setValue] = <span class="fn">useState</span>(<span class="str">''</span>);
-<span class="tag">&lt;input</span> <span class="prop">value</span>={value} <span class="prop">onChange</span>={e => <span class="fn">setValue</span>(e.target.value)} <span class="tag">/&gt;</span>
-
-<span class="cm">// Uncontrolled</span>
-<span class="kw">const</span> inputRef = <span class="fn">useRef</span>(<span class="kw">null</span>);
-<span class="tag">&lt;input</span> <span class="prop">ref</span>={inputRef} <span class="tag">/&gt;</span>
-<span class="cm">// Access value: inputRef.current.value</span></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- PERFORMANCE -->
-    <section class="section" id="performance">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(255,101,132,0.12)">🚀</div>
-        <div>
-          <div class="section-title">Performance Optimisation</div>
-          <div class="section-subtitle">Images, bundles, rendering, caching</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q16</span>
-          <span class="qa-q-text">What are your strategies for front-end web performance optimisation?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <ul>
-              <li><strong>Minify</strong> HTML, CSS, JS (Webpack, Vite do this automatically in production)</li>
-              <li><strong>Lazy loading</strong> — use <code>loading="lazy"</code> on images, dynamic <code>import()</code> for JS modules</li>
-              <li><strong>Code splitting</strong> — split bundles by route or feature so users only download what they need</li>
-              <li><strong>Image optimisation</strong> — use WebP/AVIF format, serve correct sizes with <code>srcset</code>, compress with tools like Squoosh</li>
-              <li><strong>CDN</strong> — serve static assets from edge locations geographically close to users</li>
-              <li><strong>Browser caching</strong> — set appropriate <code>Cache-Control</code> headers, use content hashing in filenames</li>
-              <li><strong>Reduce HTTP requests</strong> — bundle files, use CSS sprites, inline critical CSS</li>
-              <li><strong>Defer non-critical JS</strong> — use <code>&lt;script defer&gt;</code> or <code>&lt;script async&gt;</code></li>
-            </ul>
-            <div class="tip-box"><strong>Measure first!</strong> Use Lighthouse, Chrome DevTools Performance tab, and Web Vitals (LCP, FID, CLS) to identify real bottlenecks before optimising.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q17</span>
-          <span class="qa-q-text">How would you optimise images on a web page?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <ul>
-              <li><strong>Format:</strong> Use <strong>WebP</strong> or <strong>AVIF</strong> (smaller than PNG/JPEG). Use SVG for icons and illustrations.</li>
-              <li><strong>Size:</strong> Serve appropriately sized images using the <code>srcset</code> attribute and <code>sizes</code> descriptor.</li>
-              <li><strong>Lazy loading:</strong> Add <code>loading="lazy"</code> to images below the fold.</li>
-              <li><strong>Compression:</strong> Compress without visible quality loss using tools like Squoosh, ImageOptim, or Sharp (Node.js).</li>
-              <li><strong>CDN:</strong> Use image CDNs like Cloudinary or Imgix that auto-optimise and resize on demand.</li>
-            </ul>
-            <pre><span class="tag">&lt;img</span>
-  <span class="prop">src</span>=<span class="str">"hero-800.webp"</span>
-  <span class="prop">srcset</span>=<span class="str">"hero-400.webp 400w, hero-800.webp 800w, hero-1200.webp 1200w"</span>
-  <span class="prop">sizes</span>=<span class="str">"(max-width: 600px) 400px, 800px"</span>
-  <span class="prop">loading</span>=<span class="str">"lazy"</span>
-  <span class="prop">alt</span>=<span class="str">"Hero image"</span>
-<span class="tag">/&gt;</span></pre>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- RESPONSIVE -->
-    <section class="section" id="responsive">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(67,233,123,0.12)">📱</div>
-        <div>
-          <div class="section-title">Responsive Design</div>
-          <div class="section-subtitle">Layouts, breakpoints, accessibility</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q18</span>
-          <span class="qa-q-text">What are the main considerations when building responsive layouts?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <ul>
-              <li><strong>Flexible grids</strong> — CSS Grid and Flexbox with relative units (<code>fr</code>, <code>%</code>)</li>
-              <li><strong>Relative units</strong> — use <code>rem</code>/<code>em</code> for fonts, <code>%</code>/<code>vw</code>/<code>vh</code> for layouts</li>
-              <li><strong>Responsive images</strong> — <code>srcset</code>, <code>max-width: 100%</code>, SVGs for scalable graphics</li>
-              <li><strong>Mobile-first</strong> — design for small screens first, scale up</li>
-              <li><strong>Touch targets</strong> — minimum 44×44px for interactive elements</li>
-              <li><strong>Accessibility</strong> — test with screen readers, sufficient colour contrast, keyboard navigation</li>
-              <li><strong>Performance</strong> — mobile users may be on slower networks</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLS -->
-    <section class="section" id="tools">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(108,99,255,0.12)">🛠️</div>
-        <div>
-          <div class="section-title">Tooling &amp; Workflow</div>
-          <div class="section-subtitle">Bundlers, testing, debugging, version control</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q19</span>
-          <span class="qa-q-text">What techniques are effective for debugging complex front-end issues?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <ul>
-              <li><strong>Chrome DevTools</strong> — Elements tab for DOM, Console for JS errors, Network tab for API calls, Performance tab for bottlenecks</li>
-              <li><strong>Breakpoints</strong> — pause execution at any line in the Sources tab</li>
-              <li><strong>React DevTools</strong> — inspect component tree, props, state, and re-renders</li>
-              <li><strong>Linters</strong> — ESLint catches errors before runtime</li>
-              <li><strong>Unit tests</strong> — Jest + React Testing Library to catch regressions early</li>
-              <li><strong>console.log strategically</strong> — but clean up before committing!</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q20</span>
-          <span class="qa-q-text">What are the strategies for modularising JavaScript in enterprise projects?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>Use <strong>ES6 modules</strong> (<code>import</code>/<code>export</code>) with bundlers like <strong>Webpack</strong> or <strong>Vite</strong>. Each module has <strong>one responsibility</strong> and minimal dependencies.</p>
-            <p>Organise by <strong>feature/domain</strong> rather than type (avoid: <code>/components</code>, <code>/utils</code> — prefer: <code>/auth</code>, <code>/dashboard</code>, each containing its own component, hook, and util files).</p>
-            <p>Use <strong>barrel files</strong> (<code>index.js</code>) to expose clean public APIs from each folder. Document reusable modules with JSDoc or TypeScript interfaces.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ARCHITECTURE -->
-    <section class="section" id="architecture">
-      <div class="section-header">
-        <div class="section-icon" style="background:rgba(247,151,30,0.12)">🏗️</div>
-        <div>
-          <div class="section-title">Architecture &amp; System Design</div>
-          <div class="section-subtitle">SSR, CSR, Next.js, micro-frontends</div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q21</span>
-          <span class="qa-q-text">What are the trade-offs between SSR, CSR, and SSG?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p><strong>CSR (Client-Side Rendering)</strong> — HTML is rendered in the browser by JavaScript. Fast subsequent navigation but slow initial load and poor SEO without extra work. Best for dashboards and apps behind auth.</p>
-            <p><strong>SSR (Server-Side Rendering)</strong> — HTML is generated on the server per request. Fast initial paint, great SEO, but higher server load. Best for pages with dynamic, user-specific content.</p>
-            <p><strong>SSG (Static Site Generation)</strong> — HTML is pre-generated at build time. Blazing fast, cached at CDN edge, great SEO. Best for blogs, marketing pages, documentation.</p>
-            <div class="tip-box"><strong>Next.js</strong> lets you mix all three — you can SSG most pages and use SSR or ISR (Incremental Static Regeneration) for pages that need fresh data.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="qa-card">
-        <div class="qa-question" onclick="toggleQA(this)">
-          <span class="qa-num">Q22</span>
-          <span class="qa-q-text">How would you solve a specific structural problem in a large front-end codebase?</span>
-          <span class="qa-toggle">+</span>
-        </div>
-        <div class="qa-answer">
-          <div class="qa-answer-inner">
-            <p>This is a common open-ended question. Structure your answer using a STAR-like approach:</p>
-            <ol style="padding-left:20px">
-              <li style="margin-bottom:8px"><strong>Identify the problem</strong> — "The codebase had no separation between API logic and UI components, leading to tight coupling and untestability."</li>
-              <li style="margin-bottom:8px"><strong>Propose the solution</strong> — "I introduced a service layer pattern — all API calls moved to dedicated service files, components consumed hooks that wrapped those services."</li>
-              <li style="margin-bottom:8px"><strong>Show the impact</strong> — "This made components testable with mocked services, and reduced duplicate API calls by 40%."</li>
+            <h4>The Formula: Present → Past → Future</h4>
+            <p>Don't recite your CV. Instead, tell a tight, compelling narrative in this order:</p>
+            <ol>
+              <li><strong>Who you are now</strong> — your current role, level, and main area of expertise</li>
+              <li><strong>What you've built / done</strong> — 1–2 concrete, impressive highlights (not a list of every job)</li>
+              <li><strong>What you're looking for next</strong> — why you're here and what excites you about this opportunity</li>
             </ol>
-            <div class="tip-box"><strong>Tip:</strong> Always mention a real example from your experience. Generic answers score lower than specific, confident ones.</div>
+            <p>Keep it to <strong>60–90 seconds</strong>. Don't ramble. End by inviting the next question.</p>
+
+            <h4>Strong Template Answer</h4>
+            <div class="info-box">
+              <strong>"I'm a frontend developer with [X] years of experience, specialising in React and building performant, accessible user interfaces. Most recently, I worked at [Company / on Project], where I [specific achievement — e.g., 'rebuilt the dashboard from a legacy jQuery codebase into a React component library, which cut page load time by 40% and reduced bug reports by half']. Before that, I focused on [briefly mention relevant experience]. I enjoy the craft of taking complex requirements and turning them into clean, user-centred products — and I'm particularly interested in working with micro1 because of the opportunity to work on high-calibre remote projects with an international team. I'm excited to show what I can bring."</strong>
+            </div>
+
+            <h4>What to Avoid</h4>
+            <ul>
+              <li><strong>Don't read your CV chronologically.</strong> "I started in 2018 at XYZ, then in 2020 I moved to…" — this is boring and wastes your 60 seconds.</li>
+              <li><strong>Don't be vague.</strong> "I work with various web technologies" — says nothing. Be specific.</li>
+              <li><strong>Don't skip the "why here" part.</strong> Zara or subsequent questions will probe your motivation.</li>
+              <li><strong>Don't mention salary, remote preference, or personal logistics</strong> in the intro.</li>
+            </ul>
+
+            <h4>Tailoring for micro1 Specifically</h4>
+            <p>micro1 hires for global clients across many industries. Mention that you're comfortable working independently, across time zones, and that you take ownership of your work end-to-end. This aligns with what remote-first companies value most.</p>
+
+            <div class="tip-box"><strong>Pro tip:</strong> Practise your intro out loud 3–5 times before the interview. It should feel natural, not rehearsed. Zara will often use something you say in your intro to ask the next question — so mention things you're actually confident going deep on.</div>
           </div>
         </div>
       </div>
@@ -1086,24 +292,29 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
     <!-- BEHAVIORAL -->
     <section class="section" id="behavioral">
       <div class="section-header">
-        <div class="section-icon" style="background:rgba(255,101,132,0.12)">🗣️</div>
+        <div class="section-icon" style="background:rgba(247,151,30,0.12)">🗣️</div>
         <div>
           <div class="section-title">Behavioural &amp; Scenario Questions</div>
-          <div class="section-subtitle">Zara evaluates how you think, communicate, and problem-solve</div>
+          <div class="section-subtitle">Zara evaluates how you think, communicate, and problem-solve under ambiguity</div>
         </div>
       </div>
 
       <div class="qa-card">
         <div class="qa-question" onclick="toggleQA(this)">
           <span class="qa-num">B01</span>
-          <span class="qa-q-text">Tell me about a project where communication broke down. What happened and how did you handle it?</span>
+          <span class="qa-q-text">Why are you applying to micro1? What motivates you about this kind of role?</span>
           <span class="qa-toggle">+</span>
         </div>
         <div class="qa-answer">
           <div class="qa-answer-inner">
-            <p><strong>Template answer:</strong></p>
-            <p>"On a previous project, our backend team and I were building an API contract at the same time with no shared schema defined upfront. When integration time came, our data structures didn't match and it caused two days of rework. I realised we needed a <strong>contract-first approach</strong>. I introduced OpenAPI spec drafting before any code was written. After that, both teams built against the same contract and integration issues dropped significantly. I also set up a Slack channel just for cross-team API discussions to keep communication proactive."</p>
-            <div class="tip-box"><strong>Formula:</strong> Situation → What went wrong → What I did → What I learned / changed.</div>
+            <p>This question tests whether you've done your homework and whether you have real motivation beyond "I need a remote job." Zara is looking for enthusiasm and professional alignment.</p>
+            <h4>What micro1 is looking for</h4>
+            <p>micro1 is a platform that certifies elite remote engineers and matches them with top-tier global clients. They want people who are serious about craft, comfortable with autonomy, and can represent themselves professionally to international companies.</p>
+            <h4>Template Answer</h4>
+            <div class="info-box">
+              <strong>"I'm drawn to micro1 because of the calibre of work and clients available through the platform. I've reached a point in my career where I want to work on problems that genuinely challenge me, and the opportunity to be matched with high-quality global teams is exciting. I also value the remote-first structure — I work well independently and I'm used to taking full ownership of deliverables without needing a lot of hand-holding. Frontend development is where I genuinely love to be — there's a satisfaction in making something performant, clean, and actually usable. micro1's rigorous certification process also signals that the engineers on the platform take their work seriously, which is the kind of environment I thrive in."</strong>
+            </div>
+            <div class="warn-box"><strong>Avoid:</strong> "I want a remote job so I can travel" or "The pay is good." These come across as transactional, not professional.</div>
           </div>
         </div>
       </div>
@@ -1111,14 +322,24 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
       <div class="qa-card">
         <div class="qa-question" onclick="toggleQA(this)">
           <span class="qa-num">B02</span>
-          <span class="qa-q-text">Why are you applying to micro1? What motivates you about this kind of role?</span>
+          <span class="qa-q-text">Tell me about a project where communication broke down. What happened and how did you handle it?</span>
           <span class="qa-toggle">+</span>
         </div>
         <div class="qa-answer">
           <div class="qa-answer-inner">
-            <p><strong>Template answer:</strong></p>
-            <p>"I'm excited by the opportunity to work on projects with global reach through micro1's network. I enjoy environments where strong engineering standards are expected and where I can grow through high-calibre work. Frontend development is where I thrive — turning complex requirements into clean, performant, accessible interfaces. I'm particularly drawn to the remote-first model and the kinds of product challenges that micro1's clients bring."</p>
-            <div class="warn-box"><strong>Avoid:</strong> Don't just say "I want a remote job." Show genuine enthusiasm for the craft and the company's mission.</div>
+            <p>This question tests your self-awareness, your ability to work on a team, and whether you take ownership when things go wrong — or blame others.</p>
+            <h4>The STAR Formula</h4>
+            <ul>
+              <li><strong>Situation</strong> — Set the scene briefly</li>
+              <li><strong>Task</strong> — What were you trying to accomplish?</li>
+              <li><strong>Action</strong> — What did YOU specifically do to address it?</li>
+              <li><strong>Result</strong> — What changed? What did you learn?</li>
+            </ul>
+            <h4>Template Answer</h4>
+            <div class="info-box">
+              <strong>"On a project to build a new feature, my team and the backend team were building simultaneously with no shared API contract defined upfront. When integration time came, our data shapes didn't match — the backend was returning nested objects where we expected flat arrays. It caused two days of unplanned rework on both sides and delayed the release. I took it as a process failure, not a people failure. I proposed introducing a contract-first approach using OpenAPI specs — before any code is written, both teams agree on the shape of the data. I also set up a shared Slack channel specifically for API design discussions. On the next feature, integration took two hours instead of two days. The lesson I took was: misaligned assumptions are the most expensive kind of bug."</strong>
+            </div>
+            <div class="tip-box"><strong>Key:</strong> Own your part in the breakdown. Don't say "they didn't communicate well." Say "we didn't have a process that ensured alignment." This shows maturity.</div>
           </div>
         </div>
       </div>
@@ -1131,20 +352,714 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
         </div>
         <div class="qa-answer">
           <div class="qa-answer-inner">
-            <p>Structure: <strong>context → what was unclear → how you evaluated options → decision → result</strong></p>
-            <p>Example: "We needed to choose between Next.js and a pure React SPA for a product with SEO requirements but also complex dashboards. We had 2 days to decide. I built small prototypes of each, mapped the technical requirements to each approach's strengths, and consulted with the team. We chose Next.js using SSG for public pages and client-only rendering for the authenticated dashboard. The SEO improvements were measurable within two months."</p>
+            <p>This tests your decision-making process and whether you can act under uncertainty — a critical skill for autonomous remote work.</p>
+            <h4>Template Answer</h4>
+            <div class="info-box">
+              <strong>"We needed to choose a rendering strategy for a new product that had both a public-facing marketing site with SEO requirements and a complex authenticated dashboard. There was pressure to ship quickly and no clear answer on which framework to use. We had 48 hours to decide. I built minimal prototypes in Next.js and a pure React SPA, mapped each approach's trade-offs against our specific requirements, and ran a short async discussion with the team. We chose Next.js — SSG for the public pages, client-only rendering for the dashboard. Within two months, our organic search ranking for key terms improved noticeably, and the dashboard performance was unaffected. The main thing I learned is that a small time investment in evaluation always pays back more than committing to an assumption."</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">B04</span>
+          <span class="qa-q-text">How do you handle working across time zones or with limited real-time collaboration?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>micro1 places engineers with global clients. This question directly tests your fitness for async, remote-first work. The right answer signals ownership and clear communication habits.</p>
+            <h4>Template Answer</h4>
+            <div class="info-box">
+              <strong>"I've worked in async environments before and I've found that the key is over-communicating proactively — especially on blockers. I write clear, thorough async updates so my teammates in different time zones have full context when they come online. I structure my work to front-load anything that needs another person's input so I'm not blocked waiting for a response. I also keep documentation current — decisions, API contracts, component usage — so anyone can get context without asking me directly. I find I'm actually more productive in async environments because I have long uninterrupted blocks to do deep work."</strong>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- LIVE CODING: EASY -->
+    <!-- HTML & CSS -->
+    <section class="section" id="html-css">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(255,101,132,0.12)">🎨</div>
+        <div>
+          <div class="section-title">HTML &amp; CSS Questions</div>
+          <div class="section-subtitle">Scalability, architecture, cross-browser, layout</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q01</span>
+          <span class="qa-q-text">What best practices should be followed for scalable and maintainable HTML/CSS codebases?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>This is one of micro1's listed top questions. They want to hear that you think about CSS as an <em>architecture problem</em>, not just a styling tool.</p>
+            <h4>Semantic HTML</h4>
+            <p>Use elements that describe <em>what content is</em>, not just how it looks. Use <code>&lt;article&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;header&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;aside&gt;</code>. This improves accessibility for screen readers, improves SEO, and makes your HTML self-documenting.</p>
+            <h4>CSS Architecture — BEM</h4>
+            <p>BEM (Block Element Modifier) is a naming convention that prevents class name collisions and makes styles predictable. The pattern is: <code>.block__element--modifier</code>.</p>
+            <pre><span class="cm">/* Block: a standalone component */</span>
+<span class="prop">.card</span> { ... }
+
+<span class="cm">/* Element: a part of the block */</span>
+<span class="prop">.card__title</span> { ... }
+<span class="prop">.card__image</span> { ... }
+
+<span class="cm">/* Modifier: a variant of the block or element */</span>
+<span class="prop">.card--featured</span> { ... }
+<span class="prop">.card__title--large</span> { ... }</pre>
+            <h4>Preprocessors (SASS/SCSS)</h4>
+            <p>Use SCSS for variables (<code>$primary-color</code>), mixins (reusable chunks of CSS), nesting (keep related styles together), and partials (<code>_buttons.scss</code>, <code>_forms.scss</code>) that get compiled into one file.</p>
+            <h4>Minimise Specificity</h4>
+            <p>High-specificity selectors (like <code>#id .class div span</code>) are hard to override and cause "specificity wars" where developers resort to <code>!important</code>. Keep selectors flat — ideally just one class. The lower your specificity, the easier your CSS is to maintain.</p>
+            <div class="tip-box"><strong>Rule of thumb:</strong> If you're writing <code>!important</code>, that's a signal of a specificity problem elsewhere — fix the architecture, not the symptom.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q02</span>
+          <span class="qa-q-text">How do you ensure cross-browser compatibility in complex front-end projects?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>Cross-browser issues often come from CSS properties with inconsistent support, JS APIs that don't exist in older browsers, or default styling differences between browsers.</p>
+            <h4>Strategy 1 — Feature Detection over Browser Detection</h4>
+            <p>Never check <em>which browser</em> someone is on — check whether a <em>feature</em> is supported. Use the CSS <code>@supports</code> rule, or the JS library <strong>Modernizr</strong>.</p>
+            <pre><span class="cm">/* CSS feature query */</span>
+<span class="kw">@supports</span> (display: grid) {
+  <span class="prop">.layout</span> { <span class="prop">display</span>: <span class="val">grid</span>; }
+}
+<span class="cm">/* Fallback for non-grid browsers */</span>
+<span class="prop">.layout</span> { <span class="prop">display</span>: <span class="val">flex</span>; }</pre>
+            <h4>Strategy 2 — Normalize, Don't Reset</h4>
+            <p>Browsers apply their own default styles. <strong>normalize.css</strong> irons out inconsistencies while preserving useful defaults (unlike a hard reset which zeroes everything out).</p>
+            <h4>Strategy 3 — Polyfills</h4>
+            <p>A polyfill is JavaScript code that provides modern browser functionality to older browsers. For example, <code>fetch</code>, <code>IntersectionObserver</code>, and <code>Promise</code> all needed polyfills for IE support. Tools like <strong>Babel</strong> transpile modern JS syntax to ES5 automatically.</p>
+            <h4>Strategy 4 — Autoprefixer</h4>
+            <p>CSS vendor prefixes (<code>-webkit-</code>, <code>-moz-</code>) are needed for some properties in older browsers. Use <strong>Autoprefixer</strong> (a PostCSS plugin) to add these automatically based on a browserslist config — you write clean CSS and the tool handles prefixing.</p>
+            <h4>Strategy 5 — Real Device / Browser Testing</h4>
+            <p>Use <strong>BrowserStack</strong> or <strong>Sauce Labs</strong> to test on real browsers (especially Safari on iOS, which has its own WebKit quirks). Chrome DevTools' device emulator helps but is not a full replacement.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q03</span>
+          <span class="qa-q-text">Explain the CSS Box Model and how box-sizing works.</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>Every HTML element is rendered as a rectangular box. The box model defines how the total size of that box is calculated. Understanding this is critical for layout work.</p>
+            <h4>The Four Layers</h4>
+            <ol>
+              <li><strong>Content</strong> — the actual text or image</li>
+              <li><strong>Padding</strong> — transparent space inside the border, around the content</li>
+              <li><strong>Border</strong> — a line around the padding</li>
+              <li><strong>Margin</strong> — transparent space outside the border, separating elements</li>
+            </ol>
+            <h4>content-box vs border-box</h4>
+            <div class="two-col">
+              <div class="explain-block">
+                <div class="explain-title">content-box (default)</div>
+                <p>Width = content only. Padding and border are <em>added on top</em>. A div with <code>width: 200px; padding: 20px; border: 2px solid</code> renders at <strong>244px</strong> wide. Surprising!</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">border-box (recommended)</div>
+                <p>Width <em>includes</em> padding and border. A div with <code>width: 200px</code> is <strong>always 200px</strong> wide, no matter how much padding you add. Predictable.</p>
+              </div>
+            </div>
+            <pre><span class="cm">/* The universal best practice */</span>
+<span class="prop">*</span>, <span class="prop">*::before</span>, <span class="prop">*::after</span> {
+  <span class="prop">box-sizing</span>: <span class="val">border-box</span>;
+}</pre>
+            <div class="tip-box"><strong>Interview tip:</strong> If asked "why would an element be wider than expected?" — the first thing to check is the box model and whether border-box is applied.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q04</span>
+          <span class="qa-q-text">When would you use CSS Grid vs Flexbox?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>This is one of the most commonly asked practical CSS questions. The key distinction is <strong>dimensionality</strong>.</p>
+            <div class="two-col">
+              <div class="explain-block">
+                <div class="explain-title">Flexbox — 1 Dimension</div>
+                <p>Aligns items in a <em>single row or column</em>. Great for: navbars, button groups, centering an element, card rows, form layouts.</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">Grid — 2 Dimensions</div>
+                <p>Controls rows <em>and</em> columns simultaneously. Great for: page layouts, dashboards, image galleries, any grid-like structure.</p>
+              </div>
+            </div>
+            <pre><span class="cm">/* Flexbox: horizontal navbar */</span>
+<span class="prop">.navbar</span> {
+  <span class="prop">display</span>: <span class="val">flex</span>;
+  <span class="prop">align-items</span>: <span class="val">center</span>;
+  <span class="prop">justify-content</span>: <span class="val">space-between</span>;
+  <span class="prop">gap</span>: <span class="val">16px</span>;
+}
+
+<span class="cm">/* Grid: 3-column card layout */</span>
+<span class="prop">.card-grid</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>;
+  <span class="prop">gap</span>: <span class="val">24px</span>;
+}
+
+<span class="cm">/* Responsive grid without media queries */</span>
+<span class="prop">.auto-grid</span> {
+  <span class="prop">display</span>: <span class="val">grid</span>;
+  <span class="prop">grid-template-columns</span>: <span class="val">repeat(auto-fill, minmax(250px, 1fr))</span>;
+  <span class="prop">gap</span>: <span class="val">20px</span>;
+}</pre>
+            <p>They're often used together — Grid for the overall page layout, Flexbox for aligning items inside a grid cell.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q05</span>
+          <span class="qa-q-text">What are progressive enhancement and graceful degradation?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>These are two philosophies for handling browser capability differences.</p>
+            <div class="two-col">
+              <div class="explain-block">
+                <div class="explain-title">Progressive Enhancement</div>
+                <p>Start with a baseline that works <em>everywhere</em> (plain HTML, basic CSS). Then layer in advanced features for capable browsers. The foundation is accessible to all users.</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">Graceful Degradation</div>
+                <p>Build for modern browsers first, then ensure older browsers still get a functional (if reduced) experience. You build down, not up.</p>
+              </div>
+            </div>
+            <p>In practice, <strong>progressive enhancement is preferred</strong> because it's inclusive-first. For example: a form works with plain HTML <code>&lt;button type="submit"&gt;</code>, then JavaScript enhances it with async submission and inline validation for modern browsers.</p>
+            <pre><span class="cm">/* @supports lets you apply styles only when a feature exists */</span>
+<span class="cm">/* Fallback first (works everywhere): */</span>
+<span class="prop">.layout</span> { <span class="prop">display</span>: <span class="val">flex</span>; }
+
+<span class="cm">/* Enhancement (for browsers that support grid): */</span>
+<span class="kw">@supports</span> (display: grid) {
+  <span class="prop">.layout</span> { <span class="prop">display</span>: <span class="val">grid</span>; <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>; }
+}</pre>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- JAVASCRIPT -->
+    <section class="section" id="javascript">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(247,151,30,0.12)">⚡</div>
+        <div>
+          <div class="section-title">JavaScript Questions</div>
+          <div class="section-subtitle">Core concepts, async, closures, the event loop, and ES6+</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q06</span>
+          <span class="qa-q-text">Explain closures in JavaScript with a real-world example.</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>A closure is a function that <strong>remembers the variables from the scope in which it was created</strong>, even after that outer scope has finished executing. This is not a quirk — it's a fundamental and intentional feature of JavaScript.</p>
+            <h4>Why it works</h4>
+            <p>In JavaScript, functions create their own scope. When a function is defined inside another function, the inner function has access to the outer function's variables. Even after the outer function returns, those variables aren't garbage-collected — the inner function holds a reference to them. This "closed over" reference is the closure.</p>
+            <pre><span class="kw">function</span> <span class="fn">makeCounter</span>() {
+  <span class="kw">let</span> count = <span class="num">0</span>; <span class="cm">// This variable persists because of the closure</span>
+
+  <span class="kw">return</span> {
+    increment() { <span class="kw">return</span> ++count; },
+    decrement() { <span class="kw">return</span> --count; },
+    value()     { <span class="kw">return</span> count; }
+  };
+}
+
+<span class="kw">const</span> counter = <span class="fn">makeCounter</span>();
+counter.<span class="fn">increment</span>(); <span class="cm">// 1</span>
+counter.<span class="fn">increment</span>(); <span class="cm">// 2</span>
+counter.<span class="fn">decrement</span>(); <span class="cm">// 1</span>
+counter.<span class="fn">value</span>();    <span class="cm">// 1</span>
+
+<span class="cm">// count is private — nobody outside can access it directly</span>
+<span class="fn">console</span>.<span class="fn">log</span>(count); <span class="cm">// ReferenceError</span></pre>
+            <h4>Real-world use cases</h4>
+            <ul>
+              <li><strong>Data encapsulation / private variables</strong> — like the counter above</li>
+              <li><strong>Debounce / throttle</strong> — the timer ID lives in a closure between calls</li>
+              <li><strong>Memoisation</strong> — the cache object lives in the closure of the memoised function</li>
+              <li><strong>Event handlers with captured state</strong> — a click handler that knows which item it belongs to</li>
+              <li><strong>Partial application / currying</strong> — creating specialised functions from general ones</li>
+            </ul>
+            <pre><span class="cm">// Closure for memoisation</span>
+<span class="kw">function</span> <span class="fn">memoize</span>(fn) {
+  <span class="kw">const</span> cache = {}; <span class="cm">// lives in the closure</span>
+  <span class="kw">return function</span>(...args) {
+    <span class="kw">const</span> key = JSON.<span class="fn">stringify</span>(args);
+    <span class="kw">if</span> (cache[key] !== <span class="kw">undefined</span>) <span class="kw">return</span> cache[key];
+    cache[key] = <span class="fn">fn</span>(...args);
+    <span class="kw">return</span> cache[key];
+  };
+}</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q07</span>
+          <span class="qa-q-text">How does the JavaScript event loop work? What is the difference between the microtask queue and the macrotask queue?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>JavaScript is <strong>single-threaded</strong> — it can only do one thing at a time. The event loop is the mechanism that allows it to handle asynchronous operations without blocking.</p>
+            <h4>The four components</h4>
+            <ol>
+              <li><strong>Call Stack</strong> — where code executes. Functions are pushed on when called, popped off when they return. Only one thing runs here at a time.</li>
+              <li><strong>Web APIs (Browser/Node)</strong> — async operations (setTimeout, fetch, DOM events) are handed off here. When done, their callbacks are queued.</li>
+              <li><strong>Microtask Queue</strong> — holds callbacks from Promise <code>.then()</code>/<code>.catch()</code> and <code>MutationObserver</code>. Processed <em>immediately</em> after each task, before the next macrotask.</li>
+              <li><strong>Macrotask Queue (Task Queue)</strong> — holds callbacks from <code>setTimeout</code>, <code>setInterval</code>, <code>I/O events</code>. Processed one at a time, one per event loop cycle.</li>
+            </ol>
+            <h4>Execution order: Synchronous → Microtasks → Macrotasks</h4>
+            <pre><span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'A'</span>); <span class="cm">// 1. Sync — runs immediately</span>
+
+<span class="fn">setTimeout</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'B'</span>), <span class="num">0</span>); <span class="cm">// 4. Macrotask — queued after all microtasks</span>
+
+<span class="fn">Promise</span>.<span class="fn">resolve</span>()
+  .<span class="fn">then</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'C'</span>))  <span class="cm">// 3. Microtask — runs before setTimeout</span>
+  .<span class="fn">then</span>(() => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'D'</span>)); <span class="cm">// 3b. Chained microtask</span>
+
+<span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'E'</span>); <span class="cm">// 2. Sync — still in the same synchronous block</span>
+
+<span class="cm">// Output: A, E, C, D, B</span></pre>
+            <div class="tip-box"><strong>Why does this matter?</strong> Understanding this explains why <code>await</code> yields to other microtasks, why you shouldn't block the call stack with heavy computation, and why UI updates can appear delayed when JS is busy.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q08</span>
+          <span class="qa-q-text">Explain async/await vs Promises. When would you use each?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p><code>async/await</code> is <strong>syntactic sugar over Promises</strong> — under the hood it uses the same Promise machinery, but gives you code that reads synchronously and is much easier to reason about.</p>
+            <h4>Promises — explicit chaining</h4>
+            <pre><span class="fn">fetchUser</span>(id)
+  .<span class="fn">then</span>(user => <span class="fn">fetchOrders</span>(user.id))
+  .<span class="fn">then</span>(orders => <span class="fn">renderOrders</span>(orders))
+  .<span class="fn">catch</span>(err => <span class="fn">showError</span>(err))
+  .<span class="fn">finally</span>(() => <span class="fn">hideSpinner</span>());</pre>
+            <h4>async/await — sequential reads like sync code</h4>
+            <pre><span class="kw">async function</span> <span class="fn">loadOrders</span>(id) {
+  <span class="kw">try</span> {
+    <span class="kw">const</span> user   = <span class="kw">await</span> <span class="fn">fetchUser</span>(id);
+    <span class="kw">const</span> orders = <span class="kw">await</span> <span class="fn">fetchOrders</span>(user.id);
+    <span class="fn">renderOrders</span>(orders);
+  } <span class="kw">catch</span> (err) {
+    <span class="fn">showError</span>(err);
+  } <span class="kw">finally</span> {
+    <span class="fn">hideSpinner</span>();
+  }
+}</pre>
+            <h4>When to prefer Promises directly</h4>
+            <p>Use <code>Promise.all()</code> when you want to run multiple async operations <strong>in parallel</strong>, not sequentially. Using <code>await</code> in a loop runs them one after the other — very slow for independent operations.</p>
+            <pre><span class="cm">// ❌ Sequential — slow! Each waits for the previous</span>
+<span class="kw">for</span> (<span class="kw">const</span> id <span class="kw">of</span> ids) {
+  <span class="kw">const</span> user = <span class="kw">await</span> <span class="fn">fetchUser</span>(id); <span class="cm">// waits for each</span>
+}
+
+<span class="cm">// ✅ Parallel — all requests fire at once</span>
+<span class="kw">const</span> users = <span class="kw">await</span> <span class="fn">Promise</span>.<span class="fn">all</span>(ids.<span class="fn">map</span>(id => <span class="fn">fetchUser</span>(id)));</pre>
+            <div class="tip-box"><strong>Remember:</strong> <code>Promise.all</code> fails fast — if any promise rejects, the whole thing rejects. Use <code>Promise.allSettled</code> if you want all results regardless of individual failures.</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q09</span>
+          <span class="qa-q-text">What is event delegation and why is it useful?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>Event delegation is a pattern where you attach <strong>one event listener on a parent element</strong> instead of many listeners on each child. It works because of <strong>event bubbling</strong> — when you click a child element, the click event bubbles up through its ancestors.</p>
+            <h4>Without delegation (bad at scale)</h4>
+            <pre><span class="cm">// Imagine a list with 1000 items — 1000 listeners!</span>
+<span class="fn">document</span>.<span class="fn">querySelectorAll</span>(<span class="str">'.list-item'</span>).<span class="fn">forEach</span>(item => {
+  item.<span class="fn">addEventListener</span>(<span class="str">'click'</span>, <span class="fn">handleClick</span>);
+});</pre>
+            <h4>With delegation (one listener, works on dynamic elements)</h4>
+            <pre><span class="cm">// One listener on the parent — handles ALL children</span>
+<span class="fn">document</span>.<span class="fn">querySelector</span>(<span class="str">'#list'</span>).<span class="fn">addEventListener</span>(<span class="str">'click'</span>, (event) => {
+  <span class="cm">// event.target is the element that was actually clicked</span>
+  <span class="kw">if</span> (event.target.<span class="fn">matches</span>(<span class="str">'.list-item'</span>)) {
+    <span class="fn">handleClick</span>(event.target);
+  }
+  <span class="cm">// .closest() is useful for nested elements</span>
+  <span class="kw">const</span> item = event.target.<span class="fn">closest</span>(<span class="str">'.list-item'</span>);
+  <span class="kw">if</span> (item) <span class="fn">handleClick</span>(item);
+});</pre>
+            <h4>Three benefits</h4>
+            <ol>
+              <li><strong>Performance</strong> — 1 listener vs thousands = less memory usage</li>
+              <li><strong>Dynamic elements</strong> — elements added to the DOM after page load are automatically handled</li>
+              <li><strong>Less cleanup</strong> — you don't need to remove listeners from each element when they're removed</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REACT -->
+    <section class="section" id="react">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(66,211,255,0.12)">⚛️</div>
+        <div>
+          <div class="section-title">React &amp; State Management</div>
+          <div class="section-subtitle">Hooks, Virtual DOM, Context, Redux, data flow patterns</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q10</span>
+          <span class="qa-q-text">Explain React's key hooks: useState, useEffect, useMemo, useCallback, useRef.</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <h4>useState — reactive local state</h4>
+            <p>Declares a piece of state. When it changes, React re-renders the component. The setter function is <strong>asynchronous</strong> — the new value won't be available on the next line, only on the next render.</p>
+            <pre><span class="kw">const</span> [count, setCount] = <span class="fn">useState</span>(<span class="num">0</span>);
+<span class="cm">// Use functional update when new state depends on previous state:</span>
+<span class="fn">setCount</span>(prev => prev + <span class="num">1</span>); <span class="cm">// safe in concurrent mode</span></pre>
+
+            <h4>useEffect — side effects after render</h4>
+            <p>Runs after the component renders. Used for data fetching, subscriptions, timers, and DOM manipulation. The dependency array controls <em>when</em> it runs: empty array = run once on mount, values in array = run when they change, no array = run after every render (usually wrong).</p>
+            <pre><span class="fn">useEffect</span>(() => {
+  <span class="kw">const</span> timer = <span class="fn">setInterval</span>(() => <span class="fn">tick</span>(), <span class="num">1000</span>);
+  <span class="kw">return</span> () => <span class="fn">clearInterval</span>(timer); <span class="cm">// cleanup — runs before next effect or unmount</span>
+}, []); <span class="cm">// empty array = only on mount/unmount</span></pre>
+
+            <h4>useMemo — memoised computed value</h4>
+            <p>Caches the result of an expensive calculation. Only recomputes when its dependencies change. Use when you have heavy computation that shouldn't run on every render.</p>
+            <pre><span class="kw">const</span> sortedItems = <span class="fn">useMemo</span>(() =>
+  [...items].<span class="fn">sort</span>((a, b) => a.price - b.price),
+  [items] <span class="cm">// only re-sorts when items array changes</span>
+);</pre>
+
+            <h4>useCallback — memoised function reference</h4>
+            <p>Returns the same function reference between renders if dependencies haven't changed. Critical when passing callbacks to child components wrapped in <code>React.memo</code> — without it, a new function reference is created each render, breaking memoisation.</p>
+            <pre><span class="kw">const</span> handleDelete = <span class="fn">useCallback</span>((id) => {
+  <span class="fn">setItems</span>(prev => prev.<span class="fn">filter</span>(item => item.id !== id));
+}, []); <span class="cm">// stable reference — child won't re-render unnecessarily</span></pre>
+
+            <h4>useRef — mutable value without re-render</h4>
+            <p>Two use cases: (1) accessing a DOM element directly, (2) storing a mutable value that doesn't trigger a re-render when it changes (like a timer ID or a previous value).</p>
+            <pre><span class="kw">const</span> inputRef = <span class="fn">useRef</span>(<span class="kw">null</span>);
+<span class="cm">// Access DOM:</span>
+inputRef.current.<span class="fn">focus</span>();
+
+<span class="cm">// Store mutable value without triggering re-render:</span>
+<span class="kw">const</span> timerRef = <span class="fn">useRef</span>(<span class="kw">null</span>);
+timerRef.current = <span class="fn">setInterval</span>(<span class="fn">tick</span>, <span class="num">1000</span>);</pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q11</span>
+          <span class="qa-q-text">How do you manage state in large React applications?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>State management is a spectrum. The right solution depends on the scope and complexity of the state, not on what's trendy.</p>
+            <h4>The Scale</h4>
+            <ol>
+              <li><strong>useState</strong> — for local, single-component state (form inputs, open/closed toggles)</li>
+              <li><strong>useReducer</strong> — for complex local state with multiple sub-values or state transitions (a form with many fields, a multi-step wizard)</li>
+              <li><strong>Context API</strong> — for state that multiple components across the tree need (theme, current user, language). Good for state that changes infrequently — frequent updates cause all consumers to re-render.</li>
+              <li><strong>Zustand / Jotai / Recoil</strong> — lightweight external stores that avoid Context's re-render problem. Excellent for medium-complexity apps.</li>
+              <li><strong>Redux Toolkit</strong> — centralised, predictable state for large apps with complex logic, middleware (e.g. caching, logging), and many contributors who need consistent patterns.</li>
+            </ol>
+            <h4>Key principles regardless of tool</h4>
+            <ul>
+              <li><strong>Never mutate state directly</strong> — always return a new object/array</li>
+              <li><strong>Derive, don't duplicate</strong> — if you can compute a value from existing state, don't store it separately</li>
+              <li><strong>Lift state up</strong> — state should live in the lowest common ancestor that needs it</li>
+            </ul>
+            <div class="tip-box"><strong>Interview answer structure:</strong> "I start with useState. When prop drilling goes more than 2 levels, I reach for Context or a lightweight store like Zustand. Redux is reserved for apps where the state logic is genuinely complex and shared across many teams or features."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q12</span>
+          <span class="qa-q-text">What is the Virtual DOM and how does React's reconciliation algorithm work?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>Directly manipulating the real DOM is expensive — reading from it forces layout recalculations, and writing to it triggers repaints. React's Virtual DOM solves this.</p>
+            <h4>How it works</h4>
+            <ol>
+              <li>React keeps an <strong>in-memory tree</strong> (Virtual DOM) that mirrors the real DOM</li>
+              <li>When state or props change, React creates a <strong>new Virtual DOM tree</strong></li>
+              <li>The <strong>diffing algorithm</strong> compares old vs new trees to find the minimum set of changes</li>
+              <li>Only those changes are applied to the <strong>real DOM</strong> in one batch</li>
+            </ol>
+            <h4>The diffing algorithm's rules</h4>
+            <ul>
+              <li>Two elements of <strong>different types</strong> produce completely different trees — React destroys and rebuilds</li>
+              <li>Elements of the <strong>same type</strong> are updated in place — only changed attributes are applied</li>
+              <li>The <strong><code>key</code> prop</strong> on list items tells React which items are which across renders, enabling accurate diffing without reordering</li>
+            </ul>
+            <pre><span class="cm">// Without key — React can't tell what changed, may re-render all</span>
+{items.<span class="fn">map</span>(item => <span class="tag">&lt;Item</span> <span class="prop">data</span>={item} <span class="tag">/&gt;</span>)}
+
+<span class="cm">// With key — React efficiently tracks each item</span>
+{items.<span class="fn">map</span>(item => <span class="tag">&lt;Item</span> <span class="prop">key</span>={item.id} <span class="prop">data</span>={item} <span class="tag">/&gt;</span>)}</pre>
+            <div class="warn-box"><strong>Don't use array index as key</strong> if the list can be reordered or filtered — index-based keys cause bugs because the key no longer uniquely identifies the same item across renders. Always use a stable unique ID.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PERFORMANCE -->
+    <section class="section" id="performance">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(255,101,132,0.12)">🚀</div>
+        <div>
+          <div class="section-title">Performance Optimisation</div>
+          <div class="section-subtitle">Images, bundles, rendering, Core Web Vitals</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q13</span>
+          <span class="qa-q-text">What are your strategies for front-end web performance optimisation?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>Performance optimisation is a broad topic. The best answers are structured around <strong>measuring first</strong>, then applying targeted solutions. Don't optimise blindly.</p>
+            <h4>Measure First</h4>
+            <p>Use <strong>Chrome Lighthouse</strong> (built into DevTools) to get a performance score and identify specific issues. Track <strong>Core Web Vitals</strong>: LCP (Largest Contentful Paint, should be &lt;2.5s), FID/INP (interaction delay), and CLS (layout shift).</p>
+            <h4>JavaScript</h4>
+            <ul>
+              <li><strong>Code splitting</strong> — split your JS bundle by route using dynamic <code>import()</code>. Users only download the code for the page they're on.</li>
+              <li><strong>Tree shaking</strong> — bundlers (Webpack, Vite) automatically remove unused exports. Write side-effect-free code to enable this.</li>
+              <li><strong>Defer non-critical JS</strong> — <code>&lt;script defer&gt;</code> parses HTML without blocking; <code>&lt;script async&gt;</code> loads and executes without blocking parsing.</li>
+            </ul>
+            <h4>Images</h4>
+            <ul>
+              <li>Use <strong>WebP or AVIF</strong> format — typically 25-50% smaller than JPEG/PNG with same quality</li>
+              <li>Use <code>srcset</code> to serve correct sizes for different screen widths</li>
+              <li>Add <code>loading="lazy"</code> to below-the-fold images</li>
+            </ul>
+            <h4>Network</h4>
+            <ul>
+              <li><strong>CDN</strong> — serve static assets from edge nodes geographically close to users</li>
+              <li><strong>Browser caching</strong> — use long-lived <code>Cache-Control</code> headers + content hashing in filenames</li>
+              <li><strong>HTTP/2</strong> — multiplexes multiple requests over one connection; reduces connection overhead</li>
+            </ul>
+            <h4>Rendering</h4>
+            <ul>
+              <li><strong>Virtualise long lists</strong> — only render visible items (react-window, react-virtual)</li>
+              <li><strong>Avoid layout thrashing</strong> — don't read and write to the DOM in alternating loops</li>
+              <li><strong>Use CSS animations over JS animations</strong> — CSS runs on the compositor thread and doesn't block the main thread</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RESPONSIVE -->
+    <section class="section" id="responsive">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(67,233,123,0.12)">📱</div>
+        <div>
+          <div class="section-title">Responsive Design</div>
+          <div class="section-subtitle">Layouts, breakpoints, units, accessibility</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q14</span>
+          <span class="qa-q-text">What are the main considerations when building responsive layouts?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <h4>Mobile-First Approach</h4>
+            <p>Write base styles for the smallest screen, then use <code>min-width</code> media queries to scale up. This ensures you're layering complexity, not fighting it — and mobile users get the smallest CSS payload.</p>
+            <pre><span class="cm">/* Base: mobile */</span>
+<span class="prop">.grid</span> { <span class="prop">display</span>: <span class="val">grid</span>; <span class="prop">grid-template-columns</span>: <span class="val">1fr</span>; }
+
+<span class="cm">/* Tablet */</span>
+<span class="kw">@media</span> (min-width: <span class="num">768px</span>) {
+  <span class="prop">.grid</span> { <span class="prop">grid-template-columns</span>: <span class="val">1fr 1fr</span>; }
+}
+
+<span class="cm">/* Desktop */</span>
+<span class="kw">@media</span> (min-width: <span class="num">1200px</span>) {
+  <span class="prop">.grid</span> { <span class="prop">grid-template-columns</span>: <span class="val">repeat(3, 1fr)</span>; }
+}</pre>
+            <h4>Relative Units</h4>
+            <ul>
+              <li><code>rem</code> — relative to the root font size (16px default). Great for font sizes, margins, padding.</li>
+              <li><code>em</code> — relative to the <em>element's</em> font size. Useful for component-local scaling.</li>
+              <li><code>%</code>, <code>vw</code>, <code>vh</code> — relative to parent or viewport. Great for widths and heights.</li>
+              <li>Avoid <code>px</code> for font sizes — it ignores user browser font preferences, hurting accessibility.</li>
+            </ul>
+            <h4>Touch Targets</h4>
+            <p>Interactive elements should be at least <strong>44×44px</strong> (Apple's guideline) so they're easy to tap on mobile. Buttons that are 28px tall with 8px padding around them fail this threshold.</p>
+            <h4>Content-First Breakpoints</h4>
+            <p>Don't choose breakpoints based on device sizes (768px, 1024px). Choose them based on where your <em>content breaks</em> — where the layout looks wrong. This makes your design more robust.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="section" id="tools">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(108,99,255,0.12)">🛠️</div>
+        <div>
+          <div class="section-title">Tooling &amp; Debugging</div>
+          <div class="section-subtitle">DevTools, testing, linting, version control</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q15</span>
+          <span class="qa-q-text">What techniques are effective for debugging complex front-end issues?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <h4>Chrome DevTools — your main weapon</h4>
+            <ul>
+              <li><strong>Elements tab</strong> — inspect and live-edit the DOM and CSS. Check computed styles to find where a style is coming from.</li>
+              <li><strong>Console tab</strong> — logs, errors, warnings. Use <code>console.table()</code> for arrays of objects, <code>console.group()</code> for organised logs.</li>
+              <li><strong>Sources tab</strong> — set breakpoints, step through code line by line, watch variable values. The most powerful debugging tool — use it instead of <code>console.log</code> for complex bugs.</li>
+              <li><strong>Network tab</strong> — inspect every HTTP request: URL, method, status code, payload, response. Filter by XHR/Fetch to see API calls.</li>
+              <li><strong>Performance tab</strong> — record and analyse rendering, scripting, and layout performance. Find long tasks that block the main thread.</li>
+            </ul>
+            <h4>React DevTools (browser extension)</h4>
+            <p>Inspect the component tree, view props and state for any component, see why a component re-rendered, and use the Profiler to find unnecessary renders.</p>
+            <h4>Systematic debugging approach</h4>
+            <ol>
+              <li><strong>Reproduce reliably</strong> — can you make the bug happen consistently? If not, you can't verify a fix.</li>
+              <li><strong>Isolate</strong> — narrow down to the smallest piece of code that exhibits the issue.</li>
+              <li><strong>Hypothesise and test</strong> — form a theory, test it, don't just try random things.</li>
+              <li><strong>Fix, then verify</strong> — after fixing, confirm the bug is gone and you haven't introduced regressions.</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ARCHITECTURE -->
+    <section class="section" id="architecture">
+      <div class="section-header">
+        <div class="section-icon" style="background:rgba(247,151,30,0.12)">🏗️</div>
+        <div>
+          <div class="section-title">Architecture &amp; System Design</div>
+          <div class="section-subtitle">SSR, CSR, SSG, Next.js, code structure</div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q16</span>
+          <span class="qa-q-text">What are the trade-offs between Server-Side Rendering (SSR), Client-Side Rendering (CSR), and Static Site Generation (SSG)?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <div class="two-col">
+              <div class="explain-block">
+                <div class="explain-title">CSR — Client-Side Rendering</div>
+                <p>Server sends a blank HTML shell + JS bundle. Browser runs the JS to build the DOM. <strong>Pros:</strong> fast navigation after initial load, great for dashboards behind auth. <strong>Cons:</strong> slow initial load, poor SEO (crawlers may not execute JS).</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">SSR — Server-Side Rendering</div>
+                <p>Server generates full HTML per request and sends it. <strong>Pros:</strong> fast First Contentful Paint, excellent SEO, dynamic per-user content. <strong>Cons:</strong> higher server load, slower response than cached static files.</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">SSG — Static Site Generation</div>
+                <p>HTML generated at build time, served as static files from CDN. <strong>Pros:</strong> extremely fast (no server processing), great SEO, cheap to host. <strong>Cons:</strong> content is stale until next build, not suitable for frequently changing data.</p>
+              </div>
+              <div class="explain-block">
+                <div class="explain-title">ISR — Incremental Static Regeneration</div>
+                <p>Next.js feature — pages are statically generated but can be regenerated in the background after a set interval. Best of SSG and SSR. <strong>Use for:</strong> e-commerce product pages, blog posts that update occasionally.</p>
+              </div>
+            </div>
+            <div class="tip-box"><strong>Practical answer:</strong> "I'd use SSG for marketing and documentation pages, SSR for pages with personalised or frequently changing data, and CSR for the authenticated dashboard. Next.js lets me use all three in the same app."</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="qa-card">
+        <div class="qa-question" onclick="toggleQA(this)">
+          <span class="qa-num">Q17</span>
+          <span class="qa-q-text">How would you solve a specific structural problem in a large front-end codebase?</span>
+          <span class="qa-toggle">+</span>
+        </div>
+        <div class="qa-answer">
+          <div class="qa-answer-inner">
+            <p>This is an open-ended question designed to test your architectural thinking. The key is to give a <strong>specific, concrete example</strong> — not a generic answer. Structure it like this:</p>
+            <h4>Template: The Problem, The Decision, The Result</h4>
+            <div class="info-box">
+              <strong>"We had a codebase where API calls were scattered across components — every component called fetch directly. This made testing hard, created duplicate logic, and made it nearly impossible to add consistent error handling or authentication headers. I proposed introducing a service layer: all API calls moved to dedicated service files (e.g. userService.js, ordersService.js). Components then consumed custom hooks (e.g. useUsers()) that wrapped those services. This had three effects: components became purely presentational and much easier to test with mocked data, auth headers and error handling were centralised in one place, and duplicate API calls dropped noticeably. The refactor took 3 days and the codebase was meaningfully easier to maintain afterward."</strong>
+            </div>
+            <div class="tip-box"><strong>Key principle:</strong> Show that you've identified a systemic problem, proposed an architectural solution (not a patch), and can articulate the tangible benefits.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== LIVE CODING ==================== -->
+
+    <!-- EASY -->
     <section class="section" id="live-easy">
       <div class="section-header">
         <div class="section-icon" style="background:rgba(67,233,123,0.12)">💻</div>
         <div>
           <div class="section-title">Live Coding — Easy</div>
-          <div class="section-subtitle">Core JS and basic DOM manipulation</div>
+          <div class="section-subtitle">Core JavaScript, DOM basics, simple React</div>
         </div>
       </div>
 
@@ -1154,41 +1069,47 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
           <span class="challenge-title">1. Debounce Function</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Implement a <code>debounce(fn, delay)</code> function that delays invoking <code>fn</code> until after <code>delay</code> ms have elapsed since the last call.</div>
+          <div class="challenge-task">Implement <code>debounce(fn, delay)</code>. It should delay invoking <code>fn</code> until after <code>delay</code> ms have elapsed since the <em>last</em> time it was called. Very commonly asked at micro1.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'deb-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'deb-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'deb-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'deb-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'deb-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="deb-q">
-            <pre><span class="cm">// Implement this function:</span>
-<span class="kw">function</span> <span class="fn">debounce</span>(fn, delay) {
+            <pre><span class="kw">function</span> <span class="fn">debounce</span>(fn, delay) {
   <span class="cm">// your code here</span>
 }
 
-<span class="cm">// Example usage:</span>
-<span class="kw">const</span> search = <span class="fn">debounce</span>((query) => {
-  <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Searching:'</span>, query);
-}, <span class="num">300</span>);
+<span class="cm">// Usage:</span>
+<span class="kw">const</span> search = <span class="fn">debounce</span>((q) => <span class="fn">console</span>.<span class="fn">log</span>(<span class="str">'Searching:'</span>, q), <span class="num">300</span>);
 
-<span class="fn">search</span>(<span class="str">'h'</span>);
-<span class="fn">search</span>(<span class="str">'he'</span>);
-<span class="fn">search</span>(<span class="str">'hel'</span>);
-<span class="cm">// Only 'hel' should trigger after 300ms</span></pre>
+<span class="fn">search</span>(<span class="str">'h'</span>);   <span class="cm">// cancelled</span>
+<span class="fn">search</span>(<span class="str">'he'</span>);  <span class="cm">// cancelled</span>
+<span class="fn">search</span>(<span class="str">'hel'</span>); <span class="cm">// fires after 300ms — only this one</span></pre>
           </div>
           <div class="tab-pane" id="deb-a">
             <pre><span class="kw">function</span> <span class="fn">debounce</span>(fn, delay) {
-  <span class="kw">let</span> timer;
+  <span class="kw">let</span> timer; <span class="cm">// persists between calls via closure</span>
+
   <span class="kw">return function</span>(...args) {
-    <span class="fn">clearTimeout</span>(timer);             <span class="cm">// cancel previous timer</span>
+    <span class="fn">clearTimeout</span>(timer);       <span class="cm">// cancel any pending call</span>
     timer = <span class="fn">setTimeout</span>(() => {
-      fn.<span class="fn">apply</span>(<span class="kw">this</span>, args);           <span class="cm">// call with correct context</span>
+      fn.<span class="fn">apply</span>(<span class="kw">this</span>, args);     <span class="cm">// preserve 'this' context and all arguments</span>
     }, delay);
   };
 }
 
-<span class="cm">// Key concepts: closures, setTimeout, clearTimeout</span>
-<span class="cm">// Real use case: search inputs, resize handlers, scroll events</span></pre>
-            <div class="tip-box"><strong>Talk through it:</strong> "I'm using a closure to persist the timer ID between calls. Each new call cancels the previous timer with clearTimeout, so the function only fires after the caller has stopped for 'delay' ms."</div>
+<span class="cm">// Real-world usage</span>
+<span class="kw">const</span> searchInput = <span class="fn">document</span>.<span class="fn">getElementById</span>(<span class="str">'search'</span>);
+searchInput.<span class="fn">addEventListener</span>(<span class="str">'input'</span>, <span class="fn">debounce</span>((e) => {
+  <span class="fn">fetchResults</span>(e.target.value);
+}, <span class="num">400</span>));</pre>
+          </div>
+          <div class="tab-pane" id="deb-e">
+            <p><strong>The core insight:</strong> The <code>timer</code> variable lives in a <em>closure</em> — it persists across multiple calls to the returned function. Every time the returned function is called, it cancels the previous timer and starts a new one. The original <code>fn</code> only executes if the caller stops calling for <code>delay</code> ms.</p>
+            <p><strong>Why <code>fn.apply(this, args)</code>?</strong> If the debounced function is a method on an object, using <code>apply</code> ensures <code>this</code> refers to the correct object. Using a simple arrow function inside <code>setTimeout</code> captures <code>this</code> from the outer scope.</p>
+            <p><strong>When to use it:</strong> Search inputs (don't fire API calls on every keystroke), window resize handlers, form validation on change.</p>
+            <p><strong>Debounce vs Throttle:</strong> Debounce = fire once after the caller <em>stops</em>. Throttle = fire at most once per time window, regardless of how many calls happen.</p>
           </div>
         </div>
       </div>
@@ -1199,31 +1120,56 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
           <span class="challenge-title">2. Flatten a Nested Array</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Write a function to flatten a deeply nested array without using <code>Array.flat()</code>.</div>
+          <div class="challenge-task">Write a function to flatten a deeply nested array to a single level without using <code>Array.flat()</code>. You must handle arbitrary nesting depth.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'flat-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'flat-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'flat-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'flat-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'flat-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="flat-q">
-            <pre><span class="fn">flatten</span>([<span class="num">1</span>, [<span class="num">2</span>, [<span class="num">3</span>, [<span class="num">4</span>]], <span class="num">5</span>]]);
-<span class="cm">// Expected: [1, 2, 3, 4, 5]</span></pre>
+            <pre><span class="fn">flatten</span>([<span class="num">1</span>, [<span class="num">2</span>, [<span class="num">3</span>, [<span class="num">4</span>, [<span class="num">5</span>]]]]]);
+<span class="cm">// Expected: [1, 2, 3, 4, 5]</span>
+
+<span class="fn">flatten</span>([<span class="num">1</span>, [<span class="num">2</span>, <span class="num">3</span>], [<span class="num">4</span>, [<span class="num">5</span>, <span class="num">6</span>]]]);
+<span class="cm">// Expected: [1, 2, 3, 4, 5, 6]</span></pre>
           </div>
           <div class="tab-pane" id="flat-a">
-            <pre><span class="kw">function</span> <span class="fn">flatten</span>(arr) {
-  <span class="kw">return</span> arr.<span class="fn">reduce</span>((flat, item) =>
-    flat.<span class="fn">concat</span>(
-      Array.<span class="fn">isArray</span>(item) ? <span class="fn">flatten</span>(item) : item
-    ),
+            <pre><span class="cm">// Solution 1: reduce + recursion (clean, functional)</span>
+<span class="kw">function</span> <span class="fn">flatten</span>(arr) {
+  <span class="kw">return</span> arr.<span class="fn">reduce</span>((acc, item) =>
+    acc.<span class="fn">concat</span>(Array.<span class="fn">isArray</span>(item) ? <span class="fn">flatten</span>(item) : item),
   []);
 }
 
-<span class="cm">// Alternative using recursion + spread:</span>
-<span class="kw">function</span> <span class="fn">flatten2</span>(arr) {
-  <span class="kw">return</span> arr.<span class="fn">reduce</span>((acc, val) =>
-    Array.<span class="fn">isArray</span>(val)
-      ? [...acc, ...<span class="fn">flatten2</span>(val)]
-      : [...acc, val],
-  []);
+<span class="cm">// Solution 2: explicit recursion (easier to read aloud)</span>
+<span class="kw">function</span> <span class="fn">flatten</span>(arr) {
+  <span class="kw">const</span> result = [];
+  <span class="kw">for</span> (<span class="kw">const</span> item <span class="kw">of</span> arr) {
+    <span class="kw">if</span> (Array.<span class="fn">isArray</span>(item)) {
+      result.<span class="fn">push</span>(...<span class="fn">flatten</span>(item)); <span class="cm">// spread recursive result</span>
+    } <span class="kw">else</span> {
+      result.<span class="fn">push</span>(item);
+    }
+  }
+  <span class="kw">return</span> result;
+}
+
+<span class="cm">// What Array.flat() does (for reference):</span>
+[<span class="num">1</span>, [<span class="num">2</span>, [<span class="num">3</span>]]].<span class="fn">flat</span>(<span class="num">Infinity</span>); <span class="cm">// [1, 2, 3]</span></pre>
+          </div>
+          <div class="tab-pane" id="flat-e">
+            <p><strong>The core idea:</strong> Recursion. For each item in the array: if it's an array, flatten it (recurse); if it's not, add it to results. The recursion naturally handles any depth.</p>
+            <p><strong>Why not just use flat()?</strong> The interviewer wants to see that you understand recursion and can work with arrays programmatically. Always mention "In production I'd use <code>.flat(Infinity)</code>, but here's the manual implementation."</p>
+            <p><strong>Trade-off to mention:</strong> Deep recursion on very large arrays can hit the call stack limit. An iterative solution using a stack (array) avoids this.</p>
+            <pre><span class="cm">// Iterative solution using a stack (avoids call stack limits)</span>
+<span class="kw">function</span> <span class="fn">flattenIterative</span>(arr) {
+  <span class="kw">const</span> stack = [...arr];
+  <span class="kw">const</span> result = [];
+  <span class="kw">while</span> (stack.length) {
+    <span class="kw">const</span> item = stack.<span class="fn">pop</span>();
+    Array.<span class="fn">isArray</span>(item) ? stack.<span class="fn">push</span>(...item) : result.<span class="fn">unshift</span>(item);
+  }
+  <span class="kw">return</span> result;
 }</pre>
           </div>
         </div>
@@ -1235,16 +1181,17 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
           <span class="challenge-title">3. Toggle Dark Mode (React)</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Create a simple React component that toggles between light and dark mode, storing preference in state.</div>
+          <div class="challenge-task">Create a React component with a button that toggles between light and dark mode. Background colour and text should change accordingly. Demonstrate useState.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'dark-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'dark-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'dark-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'dark-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'dark-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="dark-q">
-            <pre><span class="cm">// Build a React component with:
-// - A toggle button labelled "Light Mode" / "Dark Mode"
-// - Background changes based on mode
-// - Uses useState hook</span></pre>
+            <pre><span class="cm">// Requirements:
+// - Toggle button that switches between "Dark Mode" and "Light Mode"
+// - Page background and text colour respond to the toggle
+// - Use useState hook</span></pre>
           </div>
           <div class="tab-pane" id="dark-a">
             <pre><span class="kw">import</span> { useState } <span class="kw">from</span> <span class="str">'react'</span>;
@@ -1252,35 +1199,50 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
 <span class="kw">export default function</span> <span class="fn">App</span>() {
   <span class="kw">const</span> [isDark, setIsDark] = <span class="fn">useState</span>(<span class="kw">false</span>);
 
-  <span class="kw">const</span> styles = {
+  <span class="kw">const</span> theme = {
     background: isDark ? <span class="str">'#111'</span> : <span class="str">'#fff'</span>,
-    color: isDark ? <span class="str">'#fff'</span> : <span class="str">'#111'</span>,
-    minHeight: <span class="str">'100vh'</span>,
-    display: <span class="str">'flex'</span>,
+    color:      isDark ? <span class="str">'#f0f0f0'</span> : <span class="str">'#111'</span>,
+    minHeight:  <span class="str">'100vh'</span>,
+    display:    <span class="str">'flex'</span>,
+    flexDirection: <span class="str">'column'</span>,
     alignItems: <span class="str">'center'</span>,
     justifyContent: <span class="str">'center'</span>,
+    transition: <span class="str">'background 0.3s, color 0.3s'</span>, <span class="cm">// smooth transition</span>
   };
 
   <span class="kw">return</span> (
-    <span class="tag">&lt;div</span> <span class="prop">style</span>={styles}<span class="tag">&gt;</span>
-      <span class="tag">&lt;button</span> <span class="prop">onClick</span>={() => <span class="fn">setIsDark</span>(d => !d)}<span class="tag">&gt;</span>
-        {isDark ? <span class="str">'☀️ Light Mode'</span> : <span class="str">'🌙 Dark Mode'</span>}
+    <span class="tag">&lt;div</span> <span class="prop">style</span>={theme}<span class="tag">&gt;</span>
+      <span class="tag">&lt;h1&gt;</span>{isDark ? <span class="str">'🌙 Dark Mode'</span> : <span class="str">'☀️ Light Mode'</span>}<span class="tag">&lt;/h1&gt;</span>
+      <span class="tag">&lt;button</span>
+        <span class="prop">onClick</span>={() => <span class="fn">setIsDark</span>(prev => !prev)}
+        <span class="prop">style</span>={{ <span class="prop">padding</span>: <span class="str">'10px 20px'</span>, <span class="prop">marginTop</span>: <span class="str">'16px'</span>, <span class="prop">cursor</span>: <span class="str">'pointer'</span> }}
+      <span class="tag">&gt;</span>
+        Toggle Theme
       <span class="tag">&lt;/button&gt;</span>
     <span class="tag">&lt;/div&gt;</span>
   );
 }</pre>
           </div>
+          <div class="tab-pane" id="dark-e">
+            <p><strong>useState basics:</strong> <code>useState(false)</code> returns an array: the current value (<code>isDark</code>) and a setter (<code>setIsDark</code>). Calling the setter triggers a re-render with the new value.</p>
+            <p><strong>Functional update pattern:</strong> <code>setIsDark(prev => !prev)</code> — instead of <code>setIsDark(!isDark)</code>. The functional form always uses the latest state value, which is important in concurrent mode and when state updates are batched. Get in the habit of using it.</p>
+            <p><strong>Bonus points:</strong> Mention that in a real app, you'd use a CSS class toggle + CSS variables instead of inline styles. This way the browser handles the style, not React, and transitions are smoother.</p>
+            <pre><span class="cm">// Real-world approach with CSS class toggle</span>
+<span class="fn">useEffect</span>(() => {
+  <span class="fn">document</span>.body.<span class="fn">classList</span>.<span class="fn">toggle</span>(<span class="str">'dark'</span>, isDark);
+}, [isDark]);</pre>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- LIVE CODING: MEDIUM -->
+    <!-- MEDIUM -->
     <section class="section" id="live-medium">
       <div class="section-header">
         <div class="section-icon" style="background:rgba(247,151,30,0.12)">💻</div>
         <div>
           <div class="section-title">Live Coding — Medium</div>
-          <div class="section-subtitle">React components, async data, hooks</div>
+          <div class="section-subtitle">Custom hooks, async data, real React components</div>
         </div>
       </div>
 
@@ -1290,39 +1252,40 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
           <span class="challenge-title">4. Custom useFetch Hook</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Build a reusable <code>useFetch(url)</code> React hook that handles loading, data, and error states.</div>
+          <div class="challenge-task">Build a reusable <code>useFetch(url)</code> React hook that manages loading, data, and error states. Handle cleanup to prevent memory leaks when the component unmounts during a request.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'fetch-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'fetch-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'fetch-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'fetch-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'fetch-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="fetch-q">
-            <pre><span class="cm">// Build a hook that can be used like this:</span>
+            <pre><span class="cm">// Build this hook:</span>
 <span class="kw">const</span> { data, loading, error } = <span class="fn">useFetch</span>(<span class="str">'https://api.example.com/users'</span>);
 
-<span class="cm">// Should:
-// - Start loading when url changes
-// - Handle errors gracefully
-// - Clean up on unmount</span></pre>
+<span class="cm">// When the URL changes, it should re-fetch
+// It should set loading = true while fetching
+// It should handle network errors gracefully
+// It should NOT update state if the component unmounted</span></pre>
           </div>
           <div class="tab-pane" id="fetch-a">
             <pre><span class="kw">import</span> { useState, useEffect } <span class="kw">from</span> <span class="str">'react'</span>;
 
 <span class="kw">function</span> <span class="fn">useFetch</span>(url) {
-  <span class="kw">const</span> [data, setData] = <span class="fn">useState</span>(<span class="kw">null</span>);
+  <span class="kw">const</span> [data, setData]       = <span class="fn">useState</span>(<span class="kw">null</span>);
   <span class="kw">const</span> [loading, setLoading] = <span class="fn">useState</span>(<span class="kw">true</span>);
-  <span class="kw">const</span> [error, setError] = <span class="fn">useState</span>(<span class="kw">null</span>);
+  <span class="kw">const</span> [error, setError]     = <span class="fn">useState</span>(<span class="kw">null</span>);
 
   <span class="fn">useEffect</span>(() => {
-    <span class="kw">let</span> cancelled = <span class="kw">false</span>; <span class="cm">// prevent state update on unmount</span>
+    <span class="kw">let</span> cancelled = <span class="kw">false</span>; <span class="cm">// flag to prevent setState after unmount</span>
 
-    <span class="kw">const</span> <span class="fn">fetchData</span> = <span class="kw">async</span> () => {
+    <span class="kw">const</span> <span class="fn">load</span> = <span class="kw">async</span> () => {
       <span class="fn">setLoading</span>(<span class="kw">true</span>);
       <span class="fn">setError</span>(<span class="kw">null</span>);
       <span class="kw">try</span> {
         <span class="kw">const</span> res = <span class="kw">await</span> <span class="fn">fetch</span>(url);
-        <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> <span class="fn">Error</span>(<span class="str">`HTTP error: ${res.status}`</span>);
+        <span class="kw">if</span> (!res.ok) <span class="kw">throw new</span> <span class="fn">Error</span>(<span class="str">`Error: ${res.status} ${res.statusText}`</span>);
         <span class="kw">const</span> json = <span class="kw">await</span> res.<span class="fn">json</span>();
-        <span class="kw">if</span> (!cancelled) <span class="fn">setData</span>(json);
+        <span class="kw">if</span> (!cancelled) <span class="fn">setData</span>(json);   <span class="cm">// only update if still mounted</span>
       } <span class="kw">catch</span> (err) {
         <span class="kw">if</span> (!cancelled) <span class="fn">setError</span>(err.message);
       } <span class="kw">finally</span> {
@@ -1330,50 +1293,35 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
       }
     };
 
-    <span class="fn">fetchData</span>();
-    <span class="kw">return</span> () => { cancelled = <span class="kw">true</span>; }; <span class="cm">// cleanup</span>
-  }, [url]);
+    <span class="fn">load</span>();
+
+    <span class="kw">return</span> () => { cancelled = <span class="kw">true</span>; }; <span class="cm">// cleanup: cancel on unmount or url change</span>
+  }, [url]); <span class="cm">// re-fetch whenever url changes</span>
 
   <span class="kw">return</span> { data, loading, error };
-}</pre>
-            <div class="tip-box"><strong>Key talking point:</strong> The <code>cancelled</code> flag prevents state updates after the component unmounts, which would cause a React memory leak warning.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="challenge-card">
-        <div class="challenge-header">
-          <span class="challenge-badge badge-medium">MEDIUM</span>
-          <span class="challenge-title">5. Throttle Function</span>
-        </div>
-        <div class="challenge-body">
-          <div class="challenge-task">Implement <code>throttle(fn, limit)</code> — ensures <code>fn</code> is called at most once every <code>limit</code> milliseconds regardless of how many times it's triggered.</div>
-          <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'thr-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'thr-a')">Solution</button>
-          </div>
-          <div class="tab-pane active" id="thr-q">
-            <pre><span class="cm">// Throttle vs Debounce:
-// Debounce: wait N ms after LAST call
-// Throttle: fire at most once per N ms</span>
-<span class="kw">function</span> <span class="fn">throttle</span>(fn, limit) {
-  <span class="cm">// your code here</span>
-}</pre>
-          </div>
-          <div class="tab-pane" id="thr-a">
-            <pre><span class="kw">function</span> <span class="fn">throttle</span>(fn, limit) {
-  <span class="kw">let</span> lastCall = <span class="num">0</span>;
-  <span class="kw">return function</span>(...args) {
-    <span class="kw">const</span> now = Date.<span class="fn">now</span>();
-    <span class="kw">if</span> (now - lastCall >= limit) {
-      lastCall = now;
-      <span class="kw">return</span> fn.<span class="fn">apply</span>(<span class="kw">this</span>, args);
-    }
-  };
 }
 
-<span class="cm">// Use case: scroll handlers, window resize, button spam protection</span>
-<span class="kw">window</span>.<span class="fn">addEventListener</span>(<span class="str">'scroll'</span>, <span class="fn">throttle</span>(handleScroll, <span class="num">100</span>));</pre>
+<span class="cm">// Usage in a component:</span>
+<span class="kw">function</span> <span class="fn">UserList</span>() {
+  <span class="kw">const</span> { data, loading, error } = <span class="fn">useFetch</span>(<span class="str">'/api/users'</span>);
+  <span class="kw">if</span> (loading) <span class="kw">return</span> <span class="tag">&lt;p&gt;</span>Loading...<span class="tag">&lt;/p&gt;</span>;
+  <span class="kw">if</span> (error)   <span class="kw">return</span> <span class="tag">&lt;p&gt;</span>Error: {error}<span class="tag">&lt;/p&gt;</span>;
+  <span class="kw">return</span> <span class="tag">&lt;ul&gt;</span>{data.<span class="fn">map</span>(u => <span class="tag">&lt;li</span> <span class="prop">key</span>={u.id}<span class="tag">&gt;</span>{u.name}<span class="tag">&lt;/li&gt;</span>)}<span class="tag">&lt;/ul&gt;</span>;
+}</pre>
+          </div>
+          <div class="tab-pane" id="fetch-e">
+            <p><strong>The cancellation pattern:</strong> The <code>cancelled</code> boolean flag is the most important part. Here's the problem it solves: if the user navigates away while a fetch is in flight, the component unmounts. When the fetch finishes, it tries to call <code>setData</code> on an unmounted component. React warns about this (memory leak). Setting <code>cancelled = true</code> in the cleanup function prevents the setState calls.</p>
+            <p><strong>Why not AbortController?</strong> <code>AbortController</code> is the modern way to cancel fetch requests entirely (the request is cancelled at the network level, not just ignored). It's better but more complex. Both approaches are valid — mentioning <code>AbortController</code> as an upgrade shows senior knowledge.</p>
+            <pre><span class="cm">// AbortController upgrade (bonus points)</span>
+<span class="fn">useEffect</span>(() => {
+  <span class="kw">const</span> controller = <span class="kw">new</span> <span class="fn">AbortController</span>();
+  <span class="kw">fetch</span>(url, { signal: controller.signal })
+    .<span class="fn">then</span>(r => r.<span class="fn">json</span>())
+    .<span class="fn">then</span>(setData)
+    .<span class="fn">catch</span>(err => { <span class="kw">if</span> (err.name !== <span class="str">'AbortError'</span>) <span class="fn">setError</span>(err.message); });
+  <span class="kw">return</span> () => controller.<span class="fn">abort</span>(); <span class="cm">// actually cancels the network request</span>
+}, [url]);</pre>
+            <p><strong>useEffect dependency array:</strong> <code>[url]</code> — this makes the effect re-run whenever the URL changes, which is exactly the behaviour we want. The cleanup function runs before the next effect execution, cancelling the previous request.</p>
           </div>
         </div>
       </div>
@@ -1381,22 +1329,22 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
       <div class="challenge-card">
         <div class="challenge-header">
           <span class="challenge-badge badge-medium">MEDIUM</span>
-          <span class="challenge-title">6. Todo List (React)</span>
+          <span class="challenge-title">5. Todo List (React) — The Classic micro1 Task</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Build a functional React Todo list with add, toggle complete, and delete functionality. This is the classic micro1 live coding task.</div>
+          <div class="challenge-task">Build a functional React Todo list. Requirements: add a task, toggle complete/incomplete, delete a task, and show remaining count. This type of task appears consistently in micro1 coding sessions.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'todo-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'todo-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'todo-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'todo-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'todo-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="todo-q">
-            <pre><span class="cm">// Requirements:
-// 1. Input field + "Add" button
-// 2. List of todos, each with:
-//    - Text
-//    - Checkbox to toggle done
-//    - Delete button
-// 3. Completed todos styled differently</span></pre>
+            <pre><span class="cm">// Build a Todo app with:
+// 1. Text input + "Add" button (also fires on Enter)
+// 2. List of todos with: text, complete toggle checkbox, delete button
+// 3. Completed todos have strikethrough styling
+// 4. A count of remaining incomplete tasks
+// 5. Empty input should not add a todo</span></pre>
           </div>
           <div class="tab-pane" id="todo-a">
             <pre><span class="kw">import</span> { useState } <span class="kw">from</span> <span class="str">'react'</span>;
@@ -1406,10 +1354,11 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
   <span class="kw">const</span> [input, setInput] = <span class="fn">useState</span>(<span class="str">''</span>);
 
   <span class="kw">const</span> <span class="fn">addTodo</span> = () => {
-    <span class="kw">if</span> (!input.trim()) <span class="kw">return</span>;
+    <span class="kw">const</span> text = input.<span class="fn">trim</span>();
+    <span class="kw">if</span> (!text) <span class="kw">return</span>; <span class="cm">// guard: no empty todos</span>
     <span class="fn">setTodos</span>(prev => [
       ...prev,
-      { id: Date.<span class="fn">now</span>(), text: input.trim(), done: <span class="kw">false</span> }
+      { id: Date.<span class="fn">now</span>(), text, done: <span class="kw">false</span> }
     ]);
     <span class="fn">setInput</span>(<span class="str">''</span>);
   };
@@ -1422,22 +1371,33 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
   <span class="kw">const</span> <span class="fn">deleteTodo</span> = (id) =>
     <span class="fn">setTodos</span>(prev => prev.<span class="fn">filter</span>(t => t.id !== id));
 
+  <span class="kw">const</span> remaining = todos.<span class="fn">filter</span>(t => !t.done).length;
+
   <span class="kw">return</span> (
     <span class="tag">&lt;div&gt;</span>
-      <span class="tag">&lt;input</span>
-        <span class="prop">value</span>={input}
-        <span class="prop">onChange</span>={e => <span class="fn">setInput</span>(e.target.value)}
-        <span class="prop">onKeyDown</span>={e => e.key === <span class="str">'Enter'</span> && <span class="fn">addTodo</span>()}
-        <span class="prop">placeholder</span>=<span class="str">"Add a task..."</span>
-      <span class="tag">/&gt;</span>
-      <span class="tag">&lt;button</span> <span class="prop">onClick</span>={addTodo}<span class="tag">&gt;</span>Add<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;h2&gt;</span>Todo List ({remaining} remaining)<span class="tag">&lt;/h2&gt;</span>
+
+      <span class="tag">&lt;div&gt;</span>
+        <span class="tag">&lt;input</span>
+          <span class="prop">value</span>={input}
+          <span class="prop">onChange</span>={e => <span class="fn">setInput</span>(e.target.value)}
+          <span class="prop">onKeyDown</span>={e => e.key === <span class="str">'Enter'</span> && <span class="fn">addTodo</span>()}
+          <span class="prop">placeholder</span>=<span class="str">"What needs to be done?"</span>
+        <span class="tag">/&gt;</span>
+        <span class="tag">&lt;button</span> <span class="prop">onClick</span>={addTodo}<span class="tag">&gt;</span>Add<span class="tag">&lt;/button&gt;</span>
+      <span class="tag">&lt;/div&gt;</span>
+
       <span class="tag">&lt;ul&gt;</span>
         {todos.<span class="fn">map</span>(todo => (
-          <span class="tag">&lt;li</span> <span class="prop">key</span>={todo.id}
-            <span class="prop">style</span>={{ textDecoration: todo.done ? <span class="str">'line-through'</span> : <span class="str">'none'</span> }}<span class="tag">&gt;</span>
-            <span class="tag">&lt;input</span> <span class="prop">type</span>=<span class="str">"checkbox"</span> <span class="prop">checked</span>={todo.done}
-              <span class="prop">onChange</span>={() => <span class="fn">toggleTodo</span>(todo.id)} <span class="tag">/&gt;</span>
-            {todo.text}
+          <span class="tag">&lt;li</span> <span class="prop">key</span>={todo.id} <span class="prop">style</span>={{ display: <span class="str">'flex'</span>, gap: <span class="str">'8px'</span>, alignItems: <span class="str">'center'</span> }}<span class="tag">&gt;</span>
+            <span class="tag">&lt;input</span>
+              <span class="prop">type</span>=<span class="str">"checkbox"</span>
+              <span class="prop">checked</span>={todo.done}
+              <span class="prop">onChange</span>={() => <span class="fn">toggleTodo</span>(todo.id)}
+            <span class="tag">/&gt;</span>
+            <span class="tag">&lt;span</span> <span class="prop">style</span>={{ textDecoration: todo.done ? <span class="str">'line-through'</span> : <span class="str">'none'</span>, flex: <span class="num">1</span> }}<span class="tag">&gt;</span>
+              {todo.text}
+            <span class="tag">&lt;/span&gt;</span>
             <span class="tag">&lt;button</span> <span class="prop">onClick</span>={() => <span class="fn">deleteTodo</span>(todo.id)}<span class="tag">&gt;</span>✕<span class="tag">&lt;/button&gt;</span>
           <span class="tag">&lt;/li&gt;</span>
         ))}
@@ -1446,123 +1406,146 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
   );
 }</pre>
           </div>
+          <div class="tab-pane" id="todo-e">
+            <p><strong>State shape:</strong> Each todo is an object <code>{ id, text, done }</code>. Using <code>Date.now()</code> as the id is fine for a demo — in production you'd use a UUID. The array of todos lives in a single <code>useState</code>.</p>
+            <p><strong>Immutable updates (critical!):</strong> Never mutate state directly. For toggle, use <code>map</code> to return a new array. For delete, use <code>filter</code>. For add, use spread. React compares references to detect changes — if you mutate the existing array, React won't know it changed.</p>
+            <pre><span class="cm">// ❌ Wrong — mutates state directly</span>
+<span class="kw">const</span> <span class="fn">toggleTodo</span> = (id) => {
+  <span class="kw">const</span> todo = todos.<span class="fn">find</span>(t => t.id === id);
+  todo.done = !todo.done; <span class="cm">// mutates! React won't re-render</span>
+  <span class="fn">setTodos</span>(todos);
+};
+
+<span class="cm">// ✅ Correct — returns a new array</span>
+<span class="kw">const</span> <span class="fn">toggleTodo</span> = (id) =>
+  <span class="fn">setTodos</span>(prev => prev.<span class="fn">map</span>(t =>
+    t.id === id ? { ...t, done: !t.done } : t
+  ));</pre>
+            <p><strong>Controlled input:</strong> The input is controlled — its value is always tied to React state. This makes it easy to clear (<code>setInput('')</code>) and validate before adding.</p>
+            <p><strong>Derived state:</strong> <code>remaining</code> is computed directly from <code>todos</code> — not stored as separate state. If you stored it separately, you'd have to update two pieces of state every time a todo changes. Derive instead of duplicate.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-header">
+          <span class="challenge-badge badge-medium">MEDIUM</span>
+          <span class="challenge-title">6. Throttle Function</span>
+        </div>
+        <div class="challenge-body">
+          <div class="challenge-task">Implement <code>throttle(fn, limit)</code> — the function should fire at most once every <code>limit</code> milliseconds, no matter how many times it's invoked.</div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'thr-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'thr-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'thr-e')">Explanation</button>
+          </div>
+          <div class="tab-pane active" id="thr-q">
+            <pre><span class="kw">function</span> <span class="fn">throttle</span>(fn, limit) {
+  <span class="cm">// your code here</span>
+}
+
+<span class="cm">// If scroll fires 60 times per second, throttle to 10 times per second:
+window.addEventListener('scroll', throttle(handleScroll, 100));</span></pre>
+          </div>
+          <div class="tab-pane" id="thr-a">
+            <pre><span class="kw">function</span> <span class="fn">throttle</span>(fn, limit) {
+  <span class="kw">let</span> lastCallTime = <span class="num">0</span>; <span class="cm">// timestamp of the last execution</span>
+
+  <span class="kw">return function</span>(...args) {
+    <span class="kw">const</span> now = Date.<span class="fn">now</span>();
+    <span class="kw">if</span> (now - lastCallTime >= limit) {
+      lastCallTime = now;
+      <span class="kw">return</span> fn.<span class="fn">apply</span>(<span class="kw">this</span>, args);
+    }
+  };
+}
+
+<span class="cm">// Real usage</span>
+<span class="kw">window</span>.<span class="fn">addEventListener</span>(<span class="str">'scroll'</span>, <span class="fn">throttle</span>((e) => {
+  <span class="fn">updateScrollPosition</span>(window.scrollY);
+}, <span class="num">100</span>));</pre>
+          </div>
+          <div class="tab-pane" id="thr-e">
+            <p><strong>Core logic:</strong> Record when the function last ran (<code>lastCallTime</code>). On each call, check if enough time has elapsed since then. If yes, run it and update the timestamp. If no, ignore the call.</p>
+            <p><strong>vs Debounce again:</strong></p>
+            <ul>
+              <li><strong>Debounce:</strong> "Only run after the caller has been silent for X ms." → good for: search, resize, form save</li>
+              <li><strong>Throttle:</strong> "Run at most once per X ms, even if called constantly." → good for: scroll, mousemove, animation frames, button spam</li>
+            </ul>
+            <p><strong>Limitation of this implementation:</strong> It drops the last call if it doesn't happen exactly at a boundary. A more robust implementation uses a trailing call (uses setTimeout) to ensure the last invocation always fires. Mentioning this shows depth.</p>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- LIVE CODING: HARD -->
+    <!-- HARD -->
     <section class="section" id="live-hard">
       <div class="section-header">
         <div class="section-icon" style="background:rgba(255,101,132,0.12)">💻</div>
         <div>
           <div class="section-title">Live Coding — Hard</div>
-          <div class="section-subtitle">Performance, architecture, advanced patterns</div>
+          <div class="section-subtitle">Advanced patterns, algorithms, deep React knowledge</div>
         </div>
       </div>
 
       <div class="challenge-card">
         <div class="challenge-header">
           <span class="challenge-badge badge-hard">HARD</span>
-          <span class="challenge-title">7. Virtualised List Component</span>
+          <span class="challenge-title">7. Implement Promise.all from Scratch</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Implement a basic virtualised list that only renders visible items — for a list of 10,000 items where each row is 40px tall.</div>
+          <div class="challenge-task">Implement <code>myPromiseAll(promises)</code> — it should resolve with an array of all results in order when all promises resolve, or reject immediately if any promise rejects.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'virt-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'virt-a')">Solution</button>
-          </div>
-          <div class="tab-pane active" id="virt-q">
-            <pre><span class="cm">// The problem: rendering 10,000 DOM nodes = browser crash
-// The solution: only render what's visible in the viewport
-// 
-// Given:
-// - containerHeight = 400px
-// - rowHeight = 40px
-// - items = array of 10,000 items
-// 
-// Only ~10 rows are visible at a time</span></pre>
-          </div>
-          <div class="tab-pane" id="virt-a">
-            <pre><span class="kw">import</span> { useState, useRef } <span class="kw">from</span> <span class="str">'react'</span>;
-
-<span class="kw">function</span> <span class="fn">VirtualList</span>({ items, rowHeight = <span class="num">40</span>, containerHeight = <span class="num">400</span> }) {
-  <span class="kw">const</span> [scrollTop, setScrollTop] = <span class="fn">useState</span>(<span class="num">0</span>);
-
-  <span class="kw">const</span> totalHeight = items.length * rowHeight;
-  <span class="kw">const</span> startIdx = Math.<span class="fn">floor</span>(scrollTop / rowHeight);
-  <span class="kw">const</span> visibleCount = Math.<span class="fn">ceil</span>(containerHeight / rowHeight) + <span class="num">1</span>; <span class="cm">// +1 buffer</span>
-  <span class="kw">const</span> endIdx = Math.<span class="fn">min</span>(startIdx + visibleCount, items.length);
-  <span class="kw">const</span> visibleItems = items.<span class="fn">slice</span>(startIdx, endIdx);
-
-  <span class="kw">return</span> (
-    <span class="tag">&lt;div</span>
-      <span class="prop">style</span>={{ height: containerHeight, overflowY: <span class="str">'auto'</span>, position: <span class="str">'relative'</span> }}
-      <span class="prop">onScroll</span>={e => <span class="fn">setScrollTop</span>(e.target.scrollTop)}
-    <span class="tag">&gt;</span>
-      <span class="cm">{/* Spacer to maintain scroll height */}</span>
-      <span class="tag">&lt;div</span> <span class="prop">style</span>={{ height: totalHeight, position: <span class="str">'relative'</span> }}<span class="tag">&gt;</span>
-        {visibleItems.<span class="fn">map</span>((item, i) => (
-          <span class="tag">&lt;div</span>
-            <span class="prop">key</span>={startIdx + i}
-            <span class="prop">style</span>={{
-              position: <span class="str">'absolute'</span>,
-              top: (startIdx + i) * rowHeight,
-              height: rowHeight,
-              width: <span class="str">'100%'</span>,
-            }}
-          <span class="tag">&gt;</span>
-            {item}
-          <span class="tag">&lt;/div&gt;</span>
-        ))}
-      <span class="tag">&lt;/div&gt;</span>
-    <span class="tag">&lt;/div&gt;</span>
-  );
-}</pre>
-            <div class="tip-box"><strong>Note:</strong> In production you'd use <code>react-window</code> or <code>react-virtual</code>. But knowing the concept demonstrates deep performance understanding.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="challenge-card">
-        <div class="challenge-header">
-          <span class="challenge-badge badge-hard">HARD</span>
-          <span class="challenge-title">8. Implement Promise.all from scratch</span>
-        </div>
-        <div class="challenge-body">
-          <div class="challenge-task">Implement your own version of <code>Promise.all()</code> that resolves when all promises resolve, or rejects if any promise rejects.</div>
-          <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'pall-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'pall-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'pall-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'pall-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'pall-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="pall-q">
             <pre><span class="fn">myPromiseAll</span>([
   <span class="fn">Promise</span>.<span class="fn">resolve</span>(<span class="num">1</span>),
   <span class="fn">Promise</span>.<span class="fn">resolve</span>(<span class="num">2</span>),
   <span class="fn">Promise</span>.<span class="fn">resolve</span>(<span class="num">3</span>),
-]).<span class="fn">then</span>(console.log); <span class="cm">// [1, 2, 3]</span></pre>
+]).<span class="fn">then</span>(console.log); <span class="cm">// [1, 2, 3]</span>
+
+<span class="fn">myPromiseAll</span>([
+  <span class="fn">Promise</span>.<span class="fn">resolve</span>(<span class="num">1</span>),
+  <span class="fn">Promise</span>.<span class="fn">reject</span>(<span class="kw">new</span> <span class="fn">Error</span>(<span class="str">'failed'</span>)),
+]).<span class="fn">catch</span>(console.error); <span class="cm">// Error: failed</span></pre>
           </div>
           <div class="tab-pane" id="pall-a">
             <pre><span class="kw">function</span> <span class="fn">myPromiseAll</span>(promises) {
   <span class="kw">return new</span> <span class="fn">Promise</span>((resolve, reject) => {
-    <span class="kw">if</span> (!promises.length) <span class="kw">return</span> <span class="fn">resolve</span>([]);
+    <span class="cm">// Edge case: empty array resolves immediately</span>
+    <span class="kw">if</span> (promises.length === <span class="num">0</span>) <span class="kw">return</span> <span class="fn">resolve</span>([]);
 
     <span class="kw">const</span> results = <span class="kw">new</span> <span class="fn">Array</span>(promises.length);
     <span class="kw">let</span> completed = <span class="num">0</span>;
 
-    promises.<span class="fn">forEach</span>((promise, i) => {
-      <span class="fn">Promise</span>.<span class="fn">resolve</span>(promise)  <span class="cm">// handle non-promise values</span>
+    promises.<span class="fn">forEach</span>((promise, index) => {
+      <span class="cm">// Wrap in Promise.resolve() to handle non-promise values</span>
+      <span class="fn">Promise</span>.<span class="fn">resolve</span>(promise)
         .<span class="fn">then</span>(value => {
-          results[i] = value;      <span class="cm">// preserve order</span>
+          results[index] = value; <span class="cm">// store at original index to preserve order</span>
           completed++;
           <span class="kw">if</span> (completed === promises.length) {
-            <span class="fn">resolve</span>(results);     <span class="cm">// all done</span>
+            <span class="fn">resolve</span>(results);   <span class="cm">// all done!</span>
           }
         })
-        .<span class="fn">catch</span>(reject);          <span class="cm">// any failure rejects all</span>
+        .<span class="fn">catch</span>(reject);       <span class="cm">// any single rejection rejects the whole thing</span>
     });
   });
 }</pre>
-            <div class="tip-box"><strong>Key insight:</strong> Use a counter instead of waiting sequentially. Results are stored by index to preserve original order, not resolution order.</div>
+          </div>
+          <div class="tab-pane" id="pall-e">
+            <p><strong>Key insight 1 — counter, not sequential waiting:</strong> All promises are started simultaneously. We use a <code>completed</code> counter to track how many have resolved. When the counter reaches the total, we know all are done. This is fundamentally parallel.</p>
+            <p><strong>Key insight 2 — index-based storage:</strong> We store results at <code>results[index]</code>, not with <code>push()</code>. This preserves the original input order in the output array, regardless of which promise resolves first. This is the most common mistake people make.</p>
+            <pre><span class="cm">// ❌ Wrong — push order depends on resolution order, not input order</span>
+<span class="fn">promise</span>.<span class="fn">then</span>(value => { results.<span class="fn">push</span>(value); });
+
+<span class="cm">// ✅ Correct — index preserves input order</span>
+<span class="fn">promise</span>.<span class="fn">then</span>(value => { results[index] = value; });</pre>
+            <p><strong>Key insight 3 — fail fast:</strong> <code>.catch(reject)</code> immediately rejects the outer Promise with the first error. The other promises continue running (JavaScript doesn't cancel them), but their results are ignored.</p>
+            <p><strong>Bonus — what if you want all results regardless?</strong> That's <code>Promise.allSettled()</code>. Each result is either <code>{ status: 'fulfilled', value }</code> or <code>{ status: 'rejected', reason }</code>. Mentioning this shows you know the full Promise API.</p>
           </div>
         </div>
       </div>
@@ -1570,44 +1553,55 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
       <div class="challenge-card">
         <div class="challenge-header">
           <span class="challenge-badge badge-hard">HARD</span>
-          <span class="challenge-title">9. Deep Clone an Object</span>
+          <span class="challenge-title">8. Deep Clone an Object</span>
         </div>
         <div class="challenge-body">
-          <div class="challenge-task">Write a function to deep clone a JavaScript object without using <code>JSON.parse/stringify</code> — handle arrays, nested objects, and primitive types.</div>
+          <div class="challenge-task">Write a deep clone function that handles nested objects, arrays, Dates, and circular references — without using <code>JSON.parse/stringify</code>.</div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this, 'clone-q')">Question</button>
-            <button class="tab-btn" onclick="switchTab(this, 'clone-a')">Solution</button>
+            <button class="tab-btn active" onclick="switchTab(this,'clone-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'clone-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'clone-e')">Explanation</button>
           </div>
           <div class="tab-pane active" id="clone-q">
             <pre><span class="cm">// JSON.parse/stringify fails for:
-// - functions, undefined values
-// - Date objects (converted to string)
-// - circular references
-// 
-// Build a proper deep clone</span></pre>
+// - Functions and undefined (silently removed)
+// - Date objects (converted to strings, not Date instances)
+// - Circular references (throws an error)
+// - Special types like Map, Set, RegExp</span>
+
+<span class="kw">const</span> obj = {
+  name: <span class="str">'test'</span>,
+  date: <span class="kw">new</span> <span class="fn">Date</span>(),
+  nested: { arr: [<span class="num">1</span>, <span class="num">2</span>, <span class="num">3</span>] }
+};
+<span class="kw">const</span> clone = <span class="fn">deepClone</span>(obj);
+clone.nested.arr.<span class="fn">push</span>(<span class="num">4</span>);
+<span class="fn">console</span>.<span class="fn">log</span>(obj.nested.arr); <span class="cm">// [1, 2, 3] — original unaffected</span></pre>
           </div>
           <div class="tab-pane" id="clone-a">
             <pre><span class="kw">function</span> <span class="fn">deepClone</span>(value, seen = <span class="kw">new</span> <span class="fn">WeakMap</span>()) {
-  <span class="cm">// Handle primitives and null</span>
-  <span class="kw">if</span> (value === <span class="kw">null</span> || <span class="kw">typeof</span> value !== <span class="str">'object'</span>) <span class="kw">return</span> value;
+  <span class="cm">// Primitives (string, number, boolean, null, undefined) — return as-is</span>
+  <span class="kw">if</span> (value === <span class="kw">null</span> || <span class="kw">typeof</span> value !== <span class="str">'object'</span>) {
+    <span class="kw">return</span> value;
+  }
 
-  <span class="cm">// Handle circular references</span>
+  <span class="cm">// Circular reference check — return previously cloned version</span>
   <span class="kw">if</span> (seen.<span class="fn">has</span>(value)) <span class="kw">return</span> seen.<span class="fn">get</span>(value);
 
-  <span class="cm">// Handle Date</span>
-  <span class="kw">if</span> (value <span class="kw">instanceof</span> Date) <span class="kw">return new</span> <span class="fn">Date</span>(value);
+  <span class="cm">// Handle Date — construct a new Date from the same timestamp</span>
+  <span class="kw">if</span> (value <span class="kw">instanceof</span> Date) <span class="kw">return new</span> <span class="fn">Date</span>(value.getTime());
 
   <span class="cm">// Handle Array</span>
   <span class="kw">if</span> (Array.<span class="fn">isArray</span>(value)) {
     <span class="kw">const</span> clone = [];
-    seen.<span class="fn">set</span>(value, clone);
+    seen.<span class="fn">set</span>(value, clone); <span class="cm">// register BEFORE recursing (handles circular)</span>
     value.<span class="fn">forEach</span>((item, i) => { clone[i] = <span class="fn">deepClone</span>(item, seen); });
     <span class="kw">return</span> clone;
   }
 
-  <span class="cm">// Handle plain objects</span>
+  <span class="cm">// Handle plain object</span>
   <span class="kw">const</span> clone = {};
-  seen.<span class="fn">set</span>(value, clone);
+  seen.<span class="fn">set</span>(value, clone); <span class="cm">// register BEFORE recursing</span>
   <span class="kw">for</span> (<span class="kw">const</span> key <span class="kw">in</span> value) {
     <span class="kw">if</span> (Object.prototype.<span class="fn">hasOwnProperty</span>.<span class="fn">call</span>(value, key)) {
       clone[key] = <span class="fn">deepClone</span>(value[key], seen);
@@ -1615,15 +1609,117 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
   }
   <span class="kw">return</span> clone;
 }</pre>
-            <div class="tip-box"><strong>Bonus:</strong> The <code>WeakMap</code> handles circular references — if we've already started cloning an object, we return the in-progress clone instead of infinite recursing.</div>
+          </div>
+          <div class="tab-pane" id="clone-e">
+            <p><strong>Why not JSON.parse/stringify?</strong> It's a common shortcut, but it has serious limitations: functions and <code>undefined</code> are silently removed, <code>Date</code> objects become strings, and circular references throw a <code>TypeError</code>. Knowing these limitations is what makes you senior.</p>
+            <p><strong>The WeakMap for circular references:</strong> A circular reference is when an object contains a reference back to itself (<code>obj.self = obj</code>). Without protection, deep cloning this would recurse infinitely and crash. The <code>WeakMap</code> maps original objects to their clones. If we encounter an object we've already started cloning, we return the in-progress clone instead of recursing again.</p>
+            <pre><span class="cm">// Circular reference example</span>
+<span class="kw">const</span> a = { name: <span class="str">'a'</span> };
+a.self = a; <span class="cm">// circular!</span>
+<span class="fn">deepClone</span>(a); <span class="cm">// works correctly with WeakMap protection</span></pre>
+            <p><strong>Why WeakMap instead of Map?</strong> WeakMap keys must be objects (not primitives) and are held weakly — they don't prevent garbage collection. This means our <code>seen</code> map doesn't cause memory leaks by holding references to cloned objects after the function completes.</p>
+            <p><strong>What this doesn't handle (for honesty):</strong> Functions, Symbols, Map, Set, RegExp, ArrayBuffer. Mention these as limitations if asked. For a production-grade solution, you'd use <code>structuredClone()</code> (modern browser API) or a library like Lodash's <code>_.cloneDeep</code>.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="challenge-card">
+        <div class="challenge-header">
+          <span class="challenge-badge badge-hard">HARD</span>
+          <span class="challenge-title">9. Virtualised List Component</span>
+        </div>
+        <div class="challenge-body">
+          <div class="challenge-task">Implement a basic virtualised list that only renders the visible items from a list of 10,000 items. Each row is 40px tall, the container is 400px tall. Rendering all 10,000 at once would freeze the browser.</div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'virt-q')">Question</button>
+            <button class="tab-btn" onclick="switchTab(this,'virt-a')">Solution</button>
+            <button class="tab-btn" onclick="switchTab(this,'virt-e')">Explanation</button>
+          </div>
+          <div class="tab-pane active" id="virt-q">
+            <pre><span class="cm">// The problem:
+// - 10,000 DOM nodes = browser lag / crash
+// - Most of those nodes are not visible at any time
+//
+// The solution: "virtual" rendering
+// - Measure scroll position
+// - Calculate which items are in the visible window
+// - Only render those + a small buffer
+// - Use CSS positioning to place them correctly</span>
+
+<span class="kw">const</span> items = Array.<span class="fn">from</span>({ length: <span class="num">10000</span> }, (_, i) => <span class="str">`Item ${i + 1}`</span>);
+<span class="tag">&lt;VirtualList</span> <span class="prop">items</span>={items} <span class="prop">rowHeight</span>={<span class="num">40</span>} <span class="prop">containerHeight</span>={<span class="num">400</span>} <span class="tag">/&gt;</span></pre>
+          </div>
+          <div class="tab-pane" id="virt-a">
+            <pre><span class="kw">import</span> { useState } <span class="kw">from</span> <span class="str">'react'</span>;
+
+<span class="kw">function</span> <span class="fn">VirtualList</span>({ items, rowHeight = <span class="num">40</span>, containerHeight = <span class="num">400</span> }) {
+  <span class="kw">const</span> [scrollTop, setScrollTop] = <span class="fn">useState</span>(<span class="num">0</span>);
+
+  <span class="kw">const</span> totalHeight  = items.length * rowHeight;
+
+  <span class="cm">// Which item index is at the top of the viewport?</span>
+  <span class="kw">const</span> startIndex   = Math.<span class="fn">floor</span>(scrollTop / rowHeight);
+
+  <span class="cm">// How many items fit in the viewport? Add 2 as an overscan buffer</span>
+  <span class="kw">const</span> visibleCount = Math.<span class="fn">ceil</span>(containerHeight / rowHeight) + <span class="num">2</span>;
+
+  <span class="cm">// Don't exceed the array bounds</span>
+  <span class="kw">const</span> endIndex     = Math.<span class="fn">min</span>(startIndex + visibleCount, items.length);
+
+  <span class="kw">const</span> visibleItems = items.<span class="fn">slice</span>(startIndex, endIndex);
+
+  <span class="kw">return</span> (
+    <span class="tag">&lt;div</span>
+      <span class="prop">style</span>={{ height: containerHeight, overflowY: <span class="str">'auto'</span>, position: <span class="str">'relative'</span> }}
+      <span class="prop">onScroll</span>={e => <span class="fn">setScrollTop</span>(e.currentTarget.scrollTop)}
+    <span class="tag">&gt;</span>
+      <span class="cm">{/* This div gives the scrollbar the correct full height */}</span>
+      <span class="tag">&lt;div</span> <span class="prop">style</span>={{ height: totalHeight, position: <span class="str">'relative'</span> }}<span class="tag">&gt;</span>
+        {visibleItems.<span class="fn">map</span>((item, i) => {
+          <span class="kw">const</span> absoluteIndex = startIndex + i;
+          <span class="kw">return</span> (
+            <span class="tag">&lt;div</span>
+              <span class="prop">key</span>={absoluteIndex}
+              <span class="prop">style</span>={{
+                position: <span class="str">'absolute'</span>,
+                top: absoluteIndex * rowHeight, <span class="cm">// position at correct offset</span>
+                height: rowHeight,
+                width: <span class="str">'100%'</span>,
+                display: <span class="str">'flex'</span>,
+                alignItems: <span class="str">'center'</span>,
+                padding: <span class="str">'0 12px'</span>,
+                borderBottom: <span class="str">'1px solid #eee'</span>,
+              }}
+            <span class="tag">&gt;</span>
+              {item}
+            <span class="tag">&lt;/div&gt;</span>
+          );
+        })}
+      <span class="tag">&lt;/div&gt;</span>
+    <span class="tag">&lt;/div&gt;</span>
+  );
+}</pre>
+          </div>
+          <div class="tab-pane" id="virt-e">
+            <p><strong>The core idea in plain English:</strong> Instead of rendering 10,000 rows, we render only the ~12 that are visible in the 400px container at any given scroll position. We use <code>position: absolute</code> and <code>top</code> to place them at the correct visual position. A large spacer div (10,000 × 40px = 400,000px tall) gives the scrollbar the correct proportions.</p>
+            <p><strong>Step-by-step math example:</strong> If the user has scrolled 800px down:</p>
+            <ul>
+              <li><code>startIndex = Math.floor(800 / 40) = 20</code> — start at item 20</li>
+              <li><code>visibleCount = Math.ceil(400 / 40) + 2 = 12</code> — render 12 items</li>
+              <li><code>endIndex = Math.min(20 + 12, 10000) = 32</code> — end at item 32</li>
+              <li>Item 20 gets <code>top: 20 × 40 = 800px</code> — exactly where the user is scrolled to</li>
+            </ul>
+            <p><strong>The overscan buffer (+2):</strong> We render 2 extra items beyond the visible viewport. This prevents a white flash as the user scrolls quickly before the next render kicks in.</p>
+            <p><strong>Performance consideration:</strong> <code>onScroll</code> fires very frequently. In a real app you'd throttle the scroll handler or use <code>useRef</code> to avoid setState on every pixel. Or better yet — use <strong>react-window</strong> or <strong>@tanstack/react-virtual</strong> which handle all of this robustly.</p>
+            <div class="tip-box"><strong>What to say in the interview:</strong> "In production I'd use react-window or react-virtual — they handle edge cases like variable row heights and overscan much more robustly. But understanding the underlying mechanism — scroll position → index math → absolute positioning — is what makes you able to debug or extend those libraries."</div>
           </div>
         </div>
       </div>
 
     </section>
 
-  </div>
-</div>
+  </div><!-- /content -->
+</div><!-- /main -->
 
 <script>
   function toggleQA(el) {
@@ -1642,10 +1738,8 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
     document.getElementById(paneId).classList.add('active');
   }
 
-  // Highlight active nav on scroll
   const sections = document.querySelectorAll('.section');
   const navLinks = document.querySelectorAll('.nav-link');
-
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
@@ -1655,7 +1749,6 @@ counter.<span class="fn">value</span>();    <span class="cm">// 2</span></pre>
       }
     });
   }, { rootMargin: '-20% 0px -70% 0px' });
-
   sections.forEach(s => observer.observe(s));
 </script>
 </body>
